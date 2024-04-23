@@ -1,10 +1,101 @@
+@import '/app/styles/variables.module.scss';
+
 .heroImageWrapper {
-	background: url('/images/CelestialSky.png');
+	background: url('/images/CelestialSky2.png');
+	-webkit-mask-image:url('/images/CelestialSky2.png');
+	mask-image:url('/images/CelestialSky2.png');
+	background-size:cover;
+	background-repeat: no-repeat;
+	background-position: bottom center;
+
+	width: 100vw;
+	height: 700px;
+	max-width: 100%;
+	filter: brightness(80%);
+}
+
+.bkgImage2 {
+	background-image: url("/images/LabyrinthManModified.png");
 	background-size: cover;
+	background-repeat: no-repeat;
 	background-position: center;
 	width: 100vw;
 	height: 100vh;
-	max-width: 100%;
-	position: relative;
-	top: -50vh;
+	filter: brightness(9%) saturate(200%);
+}
+
+.staticSection {
+	// border: 10px solid yellow;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.mainContent {
+	transform: translateY(62vh);
+}
+
+.quoteWrapper {
+	margin-top: 2em;
+	padding: 2em;
+	max-width: 460px;
+	margin: 0 auto;
+}
+
+.quoteText {
+	font-size: 1.5rem;
+	font-style: italic;
+	text-align: center;
+	color: $QuoteTextColor;
+}
+
+.quoteAuthor {
+	font-size: 1.2rem;
+	color: gray;
+	text-align: center;
+	margin-top: 0.4em;
+	color: $QuoteAuthorTextColor;
+}
+
+@media screen and (min-width: 100px) {
+	.mainContent {
+		// border: 5px solid white;
+		transform: translateY(62vh);
+	}
+}
+
+@media screen and (min-width: 400px) {
+	.mainContent {
+		// border: 5px solid cyan;
+		transform: translateY(60vh);
+	}
+}
+
+@media screen and (min-width: 700px) {
+	.mainContent {
+		// border: 5px solid orange;
+		transform: translateY(64vh);
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	.mainContent {
+		// border: 5px solid fuchsia;
+		transform: translateY(68vh);
+	}
+}
+
+@media screen and (min-width: 1300px) {
+	.mainContent {
+		// border: 5px solid red;
+		transform: translateY(68vh);
+	}
+}
+
+@media screen and (min-width: 1600px) {
+	.mainContent {
+		// border: 5px solid blue;
+		transform: translateY(70vh);
+	}
 }
