@@ -1,10 +1,19 @@
-import Heading from "./components/Heading/Heading";
-import Image from 'next/image'
-import styles from './Home.module.scss'
+"use client";
+
+import Link from 'next/link';
 import JuicyTalesTitle from "./components/JuicyTalesTitle/JuicyTalesTitle";
-import Article from "./components/Article/Article";
+import { useGlobalAudioPlayer } from 'react-use-audio-player'
+import styles from './Home.module.scss'
+import { useEffect } from 'react';
 
 export default function Home() {
+
+  const audioPlayer = useGlobalAudioPlayer()
+  
+  useEffect(() => {
+		audioPlayer.stop()
+	}, [])
+
   return (
     <main>
       <section className={styles.staticSection}>
@@ -27,7 +36,10 @@ export default function Home() {
           </div>
         </div>
 
-        {/* List of Works */}
+        {/* TEMPORARY DEBUG: Link to tales directly */}
+        <div className="text-center">
+          <Link href="/tales">Tales</Link>
+        </div>
 
       </section>
     </main>

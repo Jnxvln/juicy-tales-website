@@ -1,0 +1,189 @@
+@import '/app/styles/variables.module.scss';
+
+$titleUrl: "the_juice";
+$imageBaseUrl: "/images/" + $titleUrl;
+
+.pageContainer {
+	// width: 100%;
+	width: 100svw;
+	max-width: 100svw;
+}
+
+// NAVIGATION
+.navigation {}
+
+.navStoryTitle {
+	font-size: 1.8rem;
+	padding-right: 0.6em !important;
+	cursor: default;
+
+	&:hover {
+		color: #e67f19 !important;
+		transition: color 0.3s ease-in-out;
+		cursor: pointer;
+	}
+}
+
+.linkToTales {}
+
+
+.header {
+	background-color: #381220;;
+	padding: 3em 1.5em;
+}
+
+.title {
+	font-size: 2rem;
+	text-align: center;
+}
+
+.storyContainer {
+	width: 100%;
+	padding: 1.5em;
+}
+
+.typewriterCursor {
+	visibility: hidden;
+}
+
+.typewriterWrapper {
+	font-family: 'Comic Sans MS', sans-serif;
+	font-size: 1.5rem;
+}
+
+.newStanzaWrapper {
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+.stanzaImageWrapper {
+	background-size: cover;
+	background-position: center;
+	opacity: 0;
+	width: 100%;
+	height: 60svh;
+	margin: 0 auto;
+}
+
+.stanza {
+	background-color: rgba(0,0,0,0.75);
+	opacity: 0;
+	width: 100%;
+	margin: 0 auto;
+	margin-bottom: 1em;
+
+	* {
+		font-size: 0.7rem;
+	}
+}
+
+// #region STANZA IMAGE WRAPPERS =================================================================================================================================
+.stanzaImageWrapper0 {
+	background-image: url($imageBaseUrl + "/imageStanza0.jpg");
+}
+
+.stanzaImageWrapper1 {
+	background-image: url($imageBaseUrl + "/imageStanza01.png");
+}
+
+.stanzaImageWrapper2 {
+	background-image: url($imageBaseUrl + "/imageStanza02.png");
+}
+
+.stanzaImageWrapper3 {
+	background-image: url($imageBaseUrl + "/imageStanza03.png");
+}
+
+.stanzaImageWrapper4 {
+	background-image: url($imageBaseUrl + "/imageStanza04.png");
+}
+
+.stanzaImageWrapper5 {
+	background-image: url($imageBaseUrl + "/imageStanza05.png");
+}
+
+.stanzaImageWrapper6 {
+	background-image: url($imageBaseUrl + "/imageStanza06.png");
+}
+
+.stanzaImageWrapper7 {
+	background-image: url($imageBaseUrl + "/imageStanza07.png");
+}
+
+.stanzaImageWrapper8 {
+	background-image: url($imageBaseUrl + "/imageStanza08.png");
+}
+
+.stanzaImageWrapper9 {
+	background-image: url($imageBaseUrl + "/imageStanza09.png");
+}
+// #endregion =================================================================================================================================
+
+// #region MEDIA QUERIES ===========================================================================================================================
+
+// Mobile Small 320px
+@media screen and (max-width: 319px) {
+	.storyContainer {
+		// border: 4px dashed cyan;
+	}
+	.stanzaImageWrapper {
+		height: 50svh;
+	}
+}
+
+// Mobile Medium 375px
+@media screen and (min-width: 320px) {
+	.storyContainer {
+		// border: 4px dashed limegreen;
+	}
+
+	.stanza * {
+		font-size: 0.8rem;
+	}
+	.stanzaImageWrapper {
+		height: 60svh;
+	}
+}
+
+// Mobile Large 425px
+@media screen and (min-width: 425px) {
+	.storyContainer {
+		// border: 4px dashed cornflowerblue;
+	}
+
+	.stanza * {
+		font-size: 1rem;
+	}
+	.stanzaImageWrapper {
+		height: 65svh;
+	}
+}
+
+// Tablet 768px
+@media screen and (min-width: 768px) {
+	.storyContainer {
+		// border: 4px dashed white;
+	}
+
+	.stanza * {
+		font-size: 1.3rem;
+	}
+	.stanzaImageWrapper {
+		height: 70svh;
+	}
+}
+
+// Laptop Large 1440px
+@media screen and (min-width: 1440px) {
+	.storyContainer {
+		// border: 6px dotted limegreen;
+	}
+
+	.stanza * {
+		font-size: 1.6rem;
+	}
+	.stanzaImageWrapper {
+		height: 75svh;
+	}
+}
+// #endregion

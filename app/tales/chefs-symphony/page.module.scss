@@ -1,0 +1,97 @@
+@import '/app/styles/variables.module.scss';
+
+.pageContainer {}
+
+// NAVIGATION
+.navigation {}
+
+.linkToTales {}
+
+
+// HEADER
+.header {
+	// border: 1px solid gray;
+	background-color: rgb(56, 18, 32);;
+	padding: 3em 1.5em;
+}
+
+.title {
+	font-size: 2rem;
+	text-align: center;
+}
+
+.storyContainer {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.stanzaWrapper {
+	// border: 4px dotted orange;
+	position: relative;
+}
+
+.stanza {
+	// border: 2px dotted cyan;
+	position: absolute;
+	margin: 1em;
+	background-color: rgba(0,0,0,0.75);
+	padding: 2em;
+	width: 100%;
+}
+
+.stanzaImage {
+	position: relative;
+}
+
+.image {
+	width: 100%;
+	height: 100%;
+}
+
+.typewriterCursor {
+	// color: red;
+	// border: 1px dotted cyan;
+	visibility: hidden;
+}
+
+.typewriterWrapper {
+	font-family: 'Comic Sans MS', sans-serif;
+	font-size: 18pt;
+}
+
+// #region STANZA 1 ------
+.stanza1Wrapper {
+	background-image: url("/images/chefs_symphony/image1.png");
+	background-size: cover;
+	background-position: center;
+	height: 1152px;
+	width: 856px;
+	opacity: 0;
+}
+
+.stanza1 {
+	opacity: 0;
+}
+// #endregion
+
+// #region STANZA 2 ------
+.stanza2Wrapper {
+	background-image: url("/images/chefs_symphony/image2.png");
+	background-size: cover;
+	background-position: center;
+	height: 1152px;
+	width: 856px;
+	opacity: 0;
+}
+
+.stanza2 {
+	opacity: 0;
+}
+// #endregion
+
+
+// #region MEDIA QUERIES ================================================================
+
+// #endregion
