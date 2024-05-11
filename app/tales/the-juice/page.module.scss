@@ -2,6 +2,7 @@
 
 $titleUrl: "the_juice";
 $imageBaseUrl: "/images/" + $titleUrl;
+$navigationHeightOffset: 80px;
 
 .pageContainer {
 	// width: 100%;
@@ -10,7 +11,15 @@ $imageBaseUrl: "/images/" + $titleUrl;
 }
 
 // NAVIGATION
-.navigation {}
+.navigation {
+	position: fixed;
+	z-index: 999;
+	top: 0;
+	left: 0;
+	height: $navigationHeightOffset;
+	width: 100%;
+	background-color: black;
+}
 
 .navStoryTitle {
 	font-size: 1.8rem;
@@ -30,6 +39,8 @@ $imageBaseUrl: "/images/" + $titleUrl;
 .header {
 	background-color: #381220;;
 	padding: 3em 1.5em;
+	position: relative;
+	top: $navigationHeightOffset;
 }
 
 .title {
@@ -40,6 +51,8 @@ $imageBaseUrl: "/images/" + $titleUrl;
 .storyContainer {
 	width: 100%;
 	padding: 1.5em;
+	position: relative;
+	top: $navigationHeightOffset;
 }
 
 .typewriterCursor {

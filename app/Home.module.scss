@@ -1,5 +1,10 @@
 @import '/app/styles/variables.module.scss';
 
+
+.main {
+	position: relative;
+}
+
 .heroImageWrapper {
 	background: url('/images/CelestialSky2.png');
 	-webkit-mask-image:url('/images/CelestialSky2.png');
@@ -8,94 +13,173 @@
 	background-repeat: no-repeat;
 	background-position: bottom center;
 
-	width: 100vw;
-	height: 700px;
-	max-width: 100%;
+	width: 100svw;
+	height: 500px;
 	filter: brightness(80%);
 }
 
 .bkgImage2 {
+	position: absolute;
 	background-image: url("/images/LabyrinthManModified.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
-	width: 100vw;
-	height: 100vh;
+	width: 100svw;
+	height: 100svh;
 	filter: brightness(9%) saturate(200%);
 }
 
-.staticSection {
-	// border: 10px solid yellow;
+.juicyTitle {
+	// border: 3px dashed yellow;
 	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: -1;
+	z-index: 99;
+	width: 80%;
+	right: 1svw;
+	max-width: 400px;
 }
 
-.mainContent {
-	transform: translateY(62vh);
+.test {
+	// border: 3px dashed orange;
+	position: relative;
 }
 
-.quoteWrapper {
-	margin-top: 2em;
-	padding: 2em;
-	max-width: 460px;
+.quoteSection {
+	// border: 3px dashed purple;
+	position: relative;
+	top: 30svh;
+	z-index: 98;
+	width: 260px;
 	margin: 0 auto;
 }
 
-.quoteText {
-	font-size: 1.5rem;
+.quote {
+	width: 100%;
+	margin: 0 auto;
+	color: palevioletred;
 	font-style: italic;
 	text-align: center;
-	color: $QuoteTextColor;
 }
 
 .quoteAuthor {
-	font-size: 1.2rem;
-	color: gray;
+	// border: 2px dotted pink;
+	width: 100%;
+	color: salmon;
+	font-style: normal;
 	text-align: center;
-	margin-top: 0.4em;
-	color: $QuoteAuthorTextColor;
+	font-size: 1rem;
 }
 
-@media screen and (min-width: 100px) {
-	.mainContent {
-		// border: 5px solid white;
-		transform: translateY(62vh);
+.navSection {
+	// border: 3px dashed yellow;
+	position: relative;
+	margin-top: 1.5em;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+
+
+	a {
+		color: white;
+		transition: color 0.3s ease-in-out;
+
+		&:hover {
+			color: rgb(0, 145, 255);
+			transition: color 0.3s ease-in-out;
+		}
 	}
 }
 
-@media screen and (min-width: 400px) {
-	.mainContent {
-		// border: 5px solid cyan;
-		transform: translateY(60vh);
+// MEDIA QUERIES
+
+// Mobile-Small
+@media screen and (min-width: 320px) {
+	.quoteSection {
+		// border: 2px dotted white;
+	}
+
+	.juicyTitle {
+		transform: translateY(-6svh);
 	}
 }
 
-@media screen and (min-width: 700px) {
-	.mainContent {
-		// border: 5px solid orange;
-		transform: translateY(64vh);
+// Mobile-Medium
+@media screen and (min-width: 375px) {
+	.quoteSection {
+		// border: 2px dotted cyan;
+		font-size: 1.3rem;
+		width: 290px;
+	}
+
+	.juicyTitle {
+		transform: translateY(-7svh);
 	}
 }
 
-@media screen and (min-width: 1000px) {
-	.mainContent {
-		// border: 5px solid fuchsia;
-		transform: translateY(68vh);
+// Mobile-Large
+@media screen and (min-width: 425px) {
+	.quoteSection {
+		// border: 2px dotted orange;
+		width: 330px;
+		font-size: 1.5rem;
+	}
+
+	.quoteAuthor {
+		font-size: 1.2rem;
+	}
+
+	.juicyTitle {
+		transform: translateY(-8svh);
 	}
 }
 
-@media screen and (min-width: 1300px) {
-	.mainContent {
-		// border: 5px solid red;
-		transform: translateY(68vh);
+// Tablet (768px)
+@media screen and (min-width: 768px) {
+	.quoteSection {
+		// border: 2px dotted purple;
+		width: 500px;
+		font-size: 1.5rem;
+	}
+
+	.juicyTitle {
+		transform: translateY(-10svh);
+		max-width: 500px;
 	}
 }
 
-@media screen and (min-width: 1600px) {
-	.mainContent {
-		// border: 5px solid blue;
-		transform: translateY(70vh);
+// Laptop (1024px)
+@media screen and (min-width: 1024px) {
+	.quoteSection {
+		// border: 2px dotted limegreen;
+		width: 680px;
+		font-size: 2rem;
+	}
+
+	.juicyTitle {
+		top: 53svh;
+		max-width: 540px;
+		transform: translateY(-26svh);
+	}
+
+	.quoteAuthor {
+		font-size: 1.6rem;
+	}
+}
+
+// Laptop-Large (1440px)
+@media screen and (min-width: 1440px) {
+	.quoteSection {
+		// border: 2px dotted fuchsia;
+		width: 800px;
+		font-size: 2.3rem;
+	}
+
+	.juicyTitle {
+		top: 48svh;
+		max-width: 800px;
+		transform: translateY(-28svh);
+	}
+
+	.quoteAuthor {
+		font-size: 2rem;
 	}
 }

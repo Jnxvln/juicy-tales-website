@@ -1,7 +1,7 @@
 "use client";
 
+import Image from 'next/image';
 import Link from 'next/link';
-import JuicyTalesTitle from "./components/JuicyTalesTitle/JuicyTalesTitle";
 import { useGlobalAudioPlayer } from 'react-use-audio-player'
 import styles from './Home.module.scss'
 import { useEffect } from 'react';
@@ -15,33 +15,31 @@ export default function Home() {
 	}, [])
 
   return (
-    <main>
-      <section className={styles.staticSection}>
-        <div className={styles.heroImageWrapper}>
-        </div>
-        <JuicyTalesTitle />
+    <main className={styles.main}>
+      <div className={styles.heroImageWrapper}>
+      </div>
 
-        <div className={styles.bkgImage2}>
-        </div>
-      </section>
+      <Image className={styles.juicyTitle} src="/images/JuicyTalesTitle.png" alt="Title" width={200} height={200} />
 
-      <section className={styles.mainContent}>
-        {/* Quote */}
-        <div className={styles.quoteWrapper}>
-          <div className={styles.quoteText}>
-            "Life isn't about waiting for the storm to pass, it's about learning to dance in the rain"
-          </div>
-          <div className={styles.quoteAuthor}>
-            -Vivian Greene
-          </div>
-        </div>
+      <div className={styles.test}>
+        <div className={styles.bkgImage2}></div>
 
-        {/* TEMPORARY DEBUG: Link to tales directly */}
-        <div className="text-center">
-          <Link href="/tales">Tales</Link>
-        </div>
+        <section className={styles.quoteSection}>
+          <blockquote className={styles.quote}>
+            Life isn{"'"}t about waiting for the storm to pass, it{"'"}s about learning to dance in the rain
+            <div className={styles.quoteAuthor}>~ Vivian Greene</div>
+          </blockquote>
 
-      </section>
+          <section className={styles.navSection}>
+              <div>
+                <Link href="/tales">Browse Tales</Link>
+              </div>
+          </section>
+        </section>
+      </div>
+
+
+
     </main>
   );
 }
