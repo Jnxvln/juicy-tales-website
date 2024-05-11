@@ -107,7 +107,7 @@ export default function ChefsSymphony () {
 				<div>
 					{/* 1. Begin Button */}
 					<motion.div ref={beginButtonScope} className="flex items-center justify-center p-8" initial={{ opacity: 1 }}>
-						<button onClick={onBegin} className="bg-rose-800 hover:bg-rose-900 px-6 py-3 rounded-lg font-bold transition-colors duration-100" onClick={onBegin}>Begin</button>
+						<button onClick={onBegin} className="bg-rose-800 hover:bg-rose-900 px-6 py-3 rounded-lg font-bold transition-colors duration-100">Begin</button>
 					</motion.div>
 
 					{/* 2. Stanza 1 */}
