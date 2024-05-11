@@ -37,7 +37,7 @@ $navigationHeightOffset: 80px;
 
 
 .header {
-	background-color: #381220;;
+	background-color: $storyPageHeaderBgColor;
 	padding: 3em 1.5em;
 	position: relative;
 	top: $navigationHeightOffset;
@@ -76,18 +76,29 @@ $navigationHeightOffset: 80px;
 	width: 100%;
 	height: 60svh;
 	margin: 0 auto;
+	border-radius: 20px;
 }
 
 .stanza {
+	// border: 2px solid yellow;
+	float: left;
+	transform: translateY(calc(-160% -  1px));
 	background-color: rgba(0,0,0,0.75);
 	opacity: 0;
 	width: 100%;
 	margin: 0 auto;
-	margin-bottom: 1em;
+	margin-bottom: 2em;
+	padding: 0 1em;
+
 
 	* {
 		font-size: 0.7rem;
 	}
+}
+
+.stanza5 {
+	// border: 2px solid pink;
+	transform: translateY(calc(-130% - 1px));
 }
 
 // #region STANZA IMAGE WRAPPERS =================================================================================================================================
@@ -140,7 +151,7 @@ $navigationHeightOffset: 80px;
 		// border: 4px dashed cyan;
 	}
 	.stanzaImageWrapper {
-		height: 50svh;
+		height: 30svh;
 	}
 }
 
@@ -154,7 +165,10 @@ $navigationHeightOffset: 80px;
 		font-size: 0.8rem;
 	}
 	.stanzaImageWrapper {
-		height: 60svh;
+		height: 30svh;
+	}
+	.stanza * {
+		font-size: 0.7rem;
 	}
 }
 
@@ -168,7 +182,7 @@ $navigationHeightOffset: 80px;
 		font-size: 1rem;
 	}
 	.stanzaImageWrapper {
-		height: 65svh;
+		height: 50svh;
 	}
 }
 
@@ -176,6 +190,7 @@ $navigationHeightOffset: 80px;
 @media screen and (min-width: 768px) {
 	.storyContainer {
 		// border: 4px dashed white;
+		padding: 3em;
 	}
 
 	.stanza * {

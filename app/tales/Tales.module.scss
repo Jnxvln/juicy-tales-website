@@ -4,4 +4,40 @@
 	border: 2px solid orange;
 	width: 100%;
 	height: 100%;
+	padding: 3em;
+}
+
+.menuList {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+.menuItem {
+	background-color: $storyPageHeaderBgColor;
+	transition: all 0.3s ease-in-out;
+	border-radius: 3px;
+	margin: 0;
+	padding: 0.5em 1.5em;
+	width: 260px;
+	text-align: center;
+
+	&:hover {
+		background-color: rgba($storyPageHeaderBgColor, 0.61);
+		// transition: background-color 0.3s ease-in-out;
+	}
+}
+
+.homeMenuItem {
+	background-color: rgb(26, 23, 76);
+	transition: background-color 0.3s ease-in-out;
+	
+	&:hover {
+		background-color: rgb(38, 33, 115);
+		transition: background-color 0.3s ease-in-out;
+
+	}
 }

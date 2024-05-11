@@ -15,21 +15,36 @@ export default function Tales () {
 	return (
 		<div className={styles.container}>
 			<div className={styles.blah}>
-				Which tale are you looking for?
+				<Link href="/">
+					<div className={`${styles.menuItem} ${styles.homeMenuItem}`}>
+						Home
+					</div>
+				</Link>
+
+				<div className="text-gray-600 mt-24">Temporary</div>
+				<div className="font-bold mb-8">Choose your experience:</div>
 			</div>
 
 			<div className="mt-4">
-				<ol className="list-disc ml-8">
-					<li className="list-item hover:text-red-400">
-						<Link href="/tales/the-juice">The Juice</Link>
-					</li>
-					<li className="list-item hover:text-red-400">
-						<Link href="/tales/chefs-symphony">{"Chef's"} Symphony</Link>
-					</li>
-					<li className="list-item hover:text-red-400">
-						<Link href="/tales/chefs-symphony">{"Chef's"} Symphony</Link>
-					</li>
-				</ol>
+				<div className={styles.menuList}>
+					<Link href="/tales/the-juice">
+						<div className={styles.menuItem}>
+							The Juice
+						</div>
+					</Link>
+
+					<Link href="/tales/chefs-symphony">
+						<div className={styles.menuItem}>
+							{"Chef's"} Symphony
+						</div>
+					</Link>
+
+					<Link href="/tales/chefs-symphony">
+						<div className={styles.menuItem}>
+							{"Chef's"} Symphony
+						</div>
+					</Link>
+				</div>
 			</div>
 		</div>
 	)

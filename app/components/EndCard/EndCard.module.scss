@@ -1,0 +1,93 @@
+@import '/app/styles/variables.module.scss';
+
+.container {
+	// border: 1px solid yellow;
+	background-color: #3d0727;
+	background: linear-gradient(rgba(10, 6, 23, 0.5), rgba(60, 11, 27, 0.8));
+	border-radius: 10px;
+	height: 100%;
+	padding: 8em 0;
+}
+
+.titleContainer {
+	// border: 1px solid limegreen;
+	text-align: center;
+}
+
+.title {
+	// border: 1px solid cyan;
+	font-size: 3rem;
+	font-weight: bold;
+	color: orange;
+	padding-bottom: 1em;
+}
+
+.moreContainer {
+	// border: 1px solid orange;
+	display: flex;
+	padding: 1em;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	color: white;
+}
+
+.links {
+	// border: 2px dashed white;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	justify-content: space-evenly;
+	width: 100%;
+	font-weight: bold;
+
+	a {
+		background-color: #6a0e23;
+		padding: 0.5em 1em;
+		border-radius: 10px;
+
+		&:hover {
+			background-color: rgb(38, 6, 112);
+			transition: background-color 0.3s ease-in-out;
+		}
+	}
+}
+
+// #region MEDIA QUERIES
+@media screen and (max-width: 319px) {
+}
+
+@media screen and (min-width: 320px) {
+}
+
+@media screen and (min-width: 425px) {
+	.title {
+		font-size: 3rem;
+	}
+
+	.links {
+		flex-direction: row;
+		gap: 0;
+		max-width: 60svw;
+
+		a {
+			padding: 1em 2em;
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1024px) {
+	.links {
+		// border: 2px dashed white;
+	
+		a {
+			padding: 1em 3.5em;
+			font-size: 1.3rem;
+			transition: background-color 0.3s ease-in-out;
+		}
+	}
+}
+// #endregion

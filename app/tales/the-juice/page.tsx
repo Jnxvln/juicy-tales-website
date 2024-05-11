@@ -1,12 +1,12 @@
 "use client";
 
 import Link from 'next/link'
-// import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import { motion, useAnimate, useInView } from 'framer-motion'
 import Typewriter, { TypewriterClass } from 'typewriter-effect'
 import { useGlobalAudioPlayer } from 'react-use-audio-player';
 import styles from './page.module.scss'
+import EndCard from '@/app/components/EndCard/EndCard';
 
 export type TStanza = {
 	id: number;
@@ -35,7 +35,7 @@ const whileInViewOptions = {
 }
 
 const transitionOptions = {
-	duration: 3
+	duration: 2
 }
 // #endregion
 
@@ -251,7 +251,7 @@ export default function TheJuiceProse () {
 	// Stanza 0 Start Animation
 	const startStanza0Animation = async() => {
 		console.log('Starting STANZA 0 animation...')
-		await stanza0WrapperAnimate(stanza0WrapperScope.current, { opacity: 1 }, { duration: 1.5 })
+		await stanza0WrapperAnimate(stanza0WrapperScope.current, { opacity: 1 }, { duration: 3 })
 		await stanza0Animate(stanza0Scope.current, { opacity: 1 }, { duration: 1 })
 		stanza0TW_P1?.start()
 	}
@@ -259,16 +259,16 @@ export default function TheJuiceProse () {
 	// Stanza 1 Start Animation
 	const startStanza1Animation = async() => {
 		console.log('Starting STANZA 1 animation...')
-		await stanza1WrapperAnimate(stanza1WrapperScope.current, { opacity: 1 }, { duration: 1.5 })
-		await stanza1Animate(stanza1Scope.current, { opacity: 1 }, { duration: 1 })
+		stanza1WrapperAnimate(stanza1WrapperScope.current, { opacity: 1 }, { duration: 3 })
+		await stanza1Animate(stanza1Scope.current, { opacity: 1 }, { duration: 1, delay: 1 })
 		stanza1TW_P1?.start()
 	}
 
 	// Stanza 2 Start Animation
 	const startStanza2Animation = async() => {
 		console.log('Starting STANZA 2 animation...')
-		await stanza2WrapperAnimate(stanza2WrapperScope.current, { opacity: 1 }, { duration: 1.5 })
-		await stanza2Animate(stanza2Scope.current, { opacity: 1 }, { duration: 1 })
+		stanza2WrapperAnimate(stanza2WrapperScope.current, { opacity: 1 }, { duration: 4.5 })
+		await stanza2Animate(stanza2Scope.current, { opacity: 1 }, { duration: 1, delay: 1  })
 		stanza2TW_P1?.start()
 		// setTimeout(() => {
 		// 	stanza2TW_P2?.start()
@@ -278,8 +278,8 @@ export default function TheJuiceProse () {
 	// Stanza 3 Start Animation
 	const startStanza3Animation = async() => {
 		console.log('Starting STANZA 3 animation...')
-		await stanza3WrapperAnimate(stanza3WrapperScope.current, { opacity: 1 }, { duration: 1.5 })
-		await stanza3Animate(stanza3Scope.current, { opacity: 1 }, { duration: 1 })
+		stanza3WrapperAnimate(stanza3WrapperScope.current, { opacity: 1 }, { duration: 4.5 })
+		await stanza3Animate(stanza3Scope.current, { opacity: 1 }, { duration: 1, delay: 1  })
 		stanza3TW_P1?.start()
 		// setTimeout(() => {
 		// 	stanza3TW_P2?.start()
@@ -289,8 +289,8 @@ export default function TheJuiceProse () {
 	// Stanza 4 Start Animation
 	const startStanza4Animation = async() => {
 		console.log('Starting STANZA 4 animation...')
-		await stanza4WrapperAnimate(stanza4WrapperScope.current, { opacity: 1 }, { duration: 1.5 })
-		await stanza4Animate(stanza4Scope.current, { opacity: 1 }, { duration: 1 })
+		stanza4WrapperAnimate(stanza4WrapperScope.current, { opacity: 1 }, { duration: 4.5 })
+		await stanza4Animate(stanza4Scope.current, { opacity: 1 }, { duration: 1, delay: 1  })
 		stanza4TW_P1?.start()
 		// setTimeout(() => {
 		// 	stanza4TW_P2?.start()
@@ -300,8 +300,8 @@ export default function TheJuiceProse () {
 	// Stanza 5 Start Animation
 	const startStanza5Animation = async() => {
 		console.log('Starting STANZA 5 animation...')
-		await stanza5WrapperAnimate(stanza5WrapperScope.current, { opacity: 1 }, { duration: 1.5 })
-		await stanza5Animate(stanza5Scope.current, { opacity: 1 }, { duration: 1 })
+		stanza5WrapperAnimate(stanza5WrapperScope.current, { opacity: 1 }, { duration: 4.5 })
+		await stanza5Animate(stanza5Scope.current, { opacity: 1 }, { duration: 1, delay: 1  })
 		stanza5TW_P1?.start()
 		setTimeout(() => {
 			stanza5TW_P2?.start()
@@ -311,16 +311,16 @@ export default function TheJuiceProse () {
 	// Stanza 6 Start Animation
 	const startStanza6Animation = async() => {
 		console.log('Starting STANZA 6 animation...')
-		await stanza6WrapperAnimate(stanza6WrapperScope.current, { opacity: 1 }, { duration: 1.5 })
-		await stanza6Animate(stanza6Scope.current, { opacity: 1 }, { duration: 1 })
+		stanza6WrapperAnimate(stanza6WrapperScope.current, { opacity: 1 }, { duration: 4.5 })
+		await stanza6Animate(stanza6Scope.current, { opacity: 1 }, { duration: 1, delay: 1  })
 		stanza6TW_P1?.start()
 	}
 
 	// Stanza 7 Start Animation
 	const startStanza7Animation = async() => {
 		console.log('Starting STANZA 7 animation...')
-		await stanza7WrapperAnimate(stanza7WrapperScope.current, { opacity: 1 }, { duration: 1.5 })
-		await stanza7Animate(stanza7Scope.current, { opacity: 1 }, { duration: 1 })
+		stanza7WrapperAnimate(stanza7WrapperScope.current, { opacity: 1 }, { duration: 4.5 })
+		await stanza7Animate(stanza7Scope.current, { opacity: 1 }, { duration: 1, delay: 1  })
 		stanza7TW_P1?.start()
 		// setTimeout(() => {
 		// 	stanza7TW_P2?.start()
@@ -330,8 +330,8 @@ export default function TheJuiceProse () {
 	// Stanza 8 Start Animation
 	const startStanza8Animation = async() => {
 		console.log('Starting STANZA 8 animation...')
-		await stanza8WrapperAnimate(stanza8WrapperScope.current, { opacity: 1 }, { duration: 1.5 })
-		await stanza8Animate(stanza8Scope.current, { opacity: 1 }, { duration: 1 })
+		stanza8WrapperAnimate(stanza8WrapperScope.current, { opacity: 1 }, { duration: 4.5 })
+		await stanza8Animate(stanza8Scope.current, { opacity: 1 }, { duration: 1, delay: 1  })
 		stanza8TW_P1?.start()
 		// setTimeout(() => {
 		// 	stanza8TW_P2?.start()
@@ -341,8 +341,8 @@ export default function TheJuiceProse () {
 	// Stanza 9 Start Animation
 	const startStanza9Animation = async() => {
 		console.log('Starting STANZA 9 animation...')
-		await stanza9WrapperAnimate(stanza9WrapperScope.current, { opacity: 1 }, { duration: 1.5 })
-		await stanza9Animate(stanza9Scope.current, { opacity: 1 }, { duration: 1 })
+		stanza9WrapperAnimate(stanza9WrapperScope.current, { opacity: 1 }, { duration: 4.5 })
+		await stanza9Animate(stanza9Scope.current, { opacity: 1 }, { duration: 1, delay: 1  })
 		stanza9TW_P1?.start()
 		// setTimeout(() => {
 		// 	stanza9TW_P2?.start()
@@ -439,6 +439,8 @@ export default function TheJuiceProse () {
 						<button type="button" onClick={onBegin} className="bg-rose-800 hover:bg-rose-900 px-6 py-3 rounded-lg font-bold transition-colors duration-100">Begin</button>
 					</motion.div>
 
+					<br/>
+
 					{/* STANZA #0 ==================================================================================================== */}
 					<div className={styles.newStanzaWrapper}>
 						<article ref={stanza0Scope} className={`${styles.stanza} ${styles.stanza0}`}>
@@ -448,7 +450,7 @@ export default function TheJuiceProse () {
 
 									setStanza0TW_P1(typewriter)
 									typewriter.changeDelay(45)
-									typewriter.pauseFor(19)
+									typewriter.pauseFor(14)
 									typewriter.typeString(literature.stanzas[0].part1)
 								}}
 								options={typewriterOptions}
@@ -739,6 +741,12 @@ export default function TheJuiceProse () {
 							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper9}`}>
 						</div>
 					</motion.div>
+
+					<SpacerComponent />
+
+					{/* ENDING CARD ===================================================================================== */}
+
+					<EndCard />
 
 				</div>
 			</motion.section>
