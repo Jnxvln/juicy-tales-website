@@ -41,7 +41,7 @@ const transitionOptions = {
 }
 // #endregion
 
-export const SpacerComponent = () => (
+const SpacerComponent = () => (
 	<div className="my-96"></div>
 )
 
