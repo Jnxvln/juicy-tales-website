@@ -63,12 +63,12 @@ export default function TheJuiceProse () {
 		stanzas: [
 			{
 				id: 0,
-				part1: "The weight of responsibility that falls on the shoulders of the only child who constantly aids their family members in times of need is a burden carried with a heavy heart.",
+				part1: "The weight of responsibility that falls on the shoulders of the only child, who constantly aids their family members in times of need, is a burden carried with a heavy heart.",
 				part2: null
 			},
 			{
 				id: 1,
-				part1: "Day in and day out, they are there, tirelessly attending to the needs of their loved ones, sacrificing personal time and relationships to ensure their comfort and well-being.",
+				part1: "Day in and day out, they are there, tirelessly tending to the needs of their loved ones, sacrificing personal time and relationships to ensure their comfort and well-being.",
 				part2: null
 			},
 			{
@@ -78,7 +78,7 @@ export default function TheJuiceProse () {
 			},
 			{
 				id: 3,
-				part1: "Yet, despite their dedication and selfless commitment, the love they yearn to receive in return, seem to be elusive.",
+				part1: "Yet, despite their dedication and selfless commitment, the love they yearn to receive in return seems to be elusive.",
 				part2: null
 			},
 			{
@@ -93,22 +93,22 @@ export default function TheJuiceProse () {
 			},
 			{
 				id: 6,
-				part1: "Longing for a moment of respite, a chance to tend to their own needs, the demands Of others Always outweigh their own,",
+				part1: "Longing for a moment of respite, a chance to tend to their own needs, the demands of others always outweigh their own...",
 				part2: null
 			},
 			{
 				id: 7,
-				part1: "giving their all without expecting much in return, hoping that someday, someone will recognize the depth of their devotion and the magnitude of their sacrifice.",
+				part1: "...giving their all without expecting much in return, hoping that someday, someone will recognize the depth of their devotion and the magnitude of their sacrifice.",
 				part2: null
 			},
 			{
 				id: 8,
-				part1: "But until that day comes, they will continue to stand strong, to persevere through weariness and loneliness,",
+				part1: "But until that day comes, they will continue to stand strong, to persevere through weariness and loneliness...",
 				part2: null
 			},
 			{
 				id: 9,
-				part1: "knowing that their love and dedication are the greatest gifts they can offer to those they hold dear, even if it goes unnoticed and unappreciated.",
+				part1: "...knowing that their love and dedication are the greatest gifts they can offer to those they hold dear, even if it goes unnoticed and unappreciated.",
 				part2: null
 			}
 		]
