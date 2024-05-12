@@ -7,6 +7,7 @@ import Typewriter, { TypewriterClass } from 'typewriter-effect'
 import { useGlobalAudioPlayer } from 'react-use-audio-player';
 import styles from './page.module.scss'
 import EndCard from '@/app/components/EndCard/EndCard';
+import BouncingDownArrow from '@/app/components/BouncingDownArrow/BouncingDownArrow';
 
 // #region TYPES
 export type TStanza = {
@@ -22,7 +23,7 @@ export type TLiterature = {
 }
 // #endregion
 
-// #region TYPEWRITER OPTIONS
+// #region DEFAULT OPTIONS
 const typewriterOptions = {
 	wrapperClassName: styles.typewriterWrapper,
 	cursorClassName: styles.typewriterCursor
@@ -48,6 +49,7 @@ const SpacerComponent = () => (
 export default function TheJuiceProse () {
 
 	const audioPlayer = useGlobalAudioPlayer();
+	const [begin, setBegin] = useState<boolean>(false)
 
 	const literature: TLiterature = {
 		title: "The Juice",
@@ -225,6 +227,8 @@ export default function TheJuiceProse () {
 
 	// #region ACTIONS =====================================================================================
 	const onBegin = async() => {
+
+		setBegin(true)
 
 		// Begin music
 		setTimeout(() => {
@@ -426,6 +430,11 @@ export default function TheJuiceProse () {
 			autoplay: false,
 		})
 	}, [])
+
+	// `Begin` trigger
+	useEffect(() => {
+		console.log('Beginning the Literature...')
+	}, [begin])
 	// #endregion
 
 
@@ -453,7 +462,7 @@ export default function TheJuiceProse () {
 
 					<br/>
 
-					{/* STANZA #0 ==================================================================================================== */}
+					{/* STANZA #0 "the weight of responsibility..."==================================================================================================== */}
 					<div className={styles.newStanzaWrapper}>
 						<article ref={stanza0Scope} className={`${styles.stanza} ${styles.stanza0}`}>
 							{ literature?.stanzas[0]?.part1 && <Typewriter
@@ -468,15 +477,28 @@ export default function TheJuiceProse () {
 								options={typewriterOptions}
 							/> }
 						</article>
+
+						<motion.div
+							initial={initialOptions}
+							whileInView={whileInViewOptions}
+							transition={{
+								duration: 2,
+								delay: 18
+							}}
+						>
+							<BouncingDownArrow />
+						</motion.div>
+
 						<div 
 							ref={stanza0WrapperScope} 
-							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper0}`}>
+							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper0}`}
+						>
 						</div>
 					</div>
 
 					<SpacerComponent />
 
-					{/* STANZA 1 ==================================================================================================== */}
+					{/* STANZA #1 "Day in and day out..." ==================================================================================================== */}
 					<motion.div 
 						className={styles.newStanzaWrapper}
 						initial={initialOptions}
@@ -497,6 +519,18 @@ export default function TheJuiceProse () {
 								options={typewriterOptions}
 							/> }
 						</article>
+
+						<motion.div
+							initial={initialOptions}
+							whileInView={whileInViewOptions}
+							transition={{
+								duration: 2,
+								delay: 12
+							}}
+						>
+							<BouncingDownArrow />
+						</motion.div>
+
 						<div 
 							ref={stanza1WrapperScope} 
 							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper1}`}>
@@ -505,7 +539,7 @@ export default function TheJuiceProse () {
 
 					<SpacerComponent />
 
-					{/* STANZA #2 ===================================================================================== */}
+					{/* STANZA #2 "The individual who is always present..."===================================================================================== */}
 					<motion.div 
 						className={styles.newStanzaWrapper}
 						initial={initialOptions}
@@ -526,6 +560,18 @@ export default function TheJuiceProse () {
 								options={typewriterOptions}
 							/> }
 						</article>
+
+						<motion.div
+							initial={initialOptions}
+							whileInView={whileInViewOptions}
+							transition={{
+								duration: 2,
+								delay: 9
+							}}
+						>
+							<BouncingDownArrow />
+						</motion.div>
+
 						<div 
 							ref={stanza2WrapperScope} 
 							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper2}`}>
@@ -534,7 +580,7 @@ export default function TheJuiceProse () {
 
 					<SpacerComponent />
 
-					{/* STANZA #3 ===================================================================================== */}
+					{/* STANZA #3 "Yet, despite their dedication..."===================================================================================== */}
 
 					<motion.div 
 						className={styles.newStanzaWrapper}
@@ -556,6 +602,18 @@ export default function TheJuiceProse () {
 								options={typewriterOptions}
 							/> }
 						</article>
+
+						<motion.div
+							initial={initialOptions}
+							whileInView={whileInViewOptions}
+							transition={{
+								duration: 2,
+								delay: 9
+							}}
+						>
+							<BouncingDownArrow />
+						</motion.div>
+
 						<div 
 							ref={stanza3WrapperScope} 
 							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper3}`}>
@@ -564,7 +622,7 @@ export default function TheJuiceProse () {
 
 					<SpacerComponent />
 
-					{/* STANZA #4 ===================================================================================== */}
+					{/* STANZA #4 "It can be a lonely journey..."===================================================================================== */}
 
 					<motion.div 
 						className={styles.newStanzaWrapper}
@@ -586,6 +644,18 @@ export default function TheJuiceProse () {
 								options={typewriterOptions}
 							/> }
 						</article>
+
+						<motion.div
+							initial={initialOptions}
+							whileInView={whileInViewOptions}
+							transition={{
+								duration: 2,
+								delay: 8
+							}}
+						>
+							<BouncingDownArrow />
+						</motion.div>
+
 						<div 
 							ref={stanza4WrapperScope} 
 							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper4}`}>
@@ -594,7 +664,7 @@ export default function TheJuiceProse () {
 
 					<SpacerComponent />
 
-					{/* STANZA #5 ===================================================================================== */}
+					{/* STANZA #5 "As they pour their heart..."===================================================================================== */}
 
 					<motion.div 
 						className={styles.newStanzaWrapper}
@@ -632,6 +702,18 @@ export default function TheJuiceProse () {
 								options={typewriterOptions}
 							/> }
 						</article>
+
+						<motion.div
+							initial={initialOptions}
+							whileInView={whileInViewOptions}
+							transition={{
+								duration: 2,
+								delay: 18
+							}}
+						>
+							<BouncingDownArrow />
+						</motion.div>
+
 						<div 
 							ref={stanza5WrapperScope} 
 							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper5}`}>
@@ -640,7 +722,7 @@ export default function TheJuiceProse () {
 
 					<SpacerComponent />
 
-					{/* STANZA #6 ===================================================================================== */}
+					{/* STANZA #6 "Longing for a moment of respite..."===================================================================================== */}
 					<motion.div 
 						className={styles.newStanzaWrapper}
 						initial={initialOptions}
@@ -661,6 +743,18 @@ export default function TheJuiceProse () {
 								options={typewriterOptions}
 							/> }
 						</article>
+
+						<motion.div
+							initial={initialOptions}
+							whileInView={whileInViewOptions}
+							transition={{
+								duration: 2,
+								delay: 9
+							}}
+						>
+							<BouncingDownArrow />
+						</motion.div>
+
 						<div 
 							ref={stanza6WrapperScope} 
 							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper6}`}>
@@ -669,7 +763,7 @@ export default function TheJuiceProse () {
 
 					<SpacerComponent />
 
-					{/* STANZA #7 ===================================================================================== */}
+					{/* STANZA #7 "giving their all..."===================================================================================== */}
 					<motion.div 
 						className={styles.newStanzaWrapper}
 						initial={initialOptions}
@@ -690,6 +784,18 @@ export default function TheJuiceProse () {
 								options={typewriterOptions}
 							/> }
 						</article>
+
+						<motion.div
+							initial={initialOptions}
+							whileInView={whileInViewOptions}
+							transition={{
+								duration: 2,
+								delay: 11
+							}}
+						>
+							<BouncingDownArrow />
+						</motion.div>
+
 						<div 
 							ref={stanza7WrapperScope} 
 							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper7}`}>
@@ -698,7 +804,7 @@ export default function TheJuiceProse () {
 
 					<SpacerComponent />
 
-					{/* STANZA #8 ===================================================================================== */}
+					{/* STANZA #8 "But until that day comes..."===================================================================================== */}
 					<motion.div 
 						className={styles.newStanzaWrapper}
 						initial={initialOptions}
@@ -719,6 +825,18 @@ export default function TheJuiceProse () {
 								options={typewriterOptions}
 							/> }
 						</article>
+
+						<motion.div
+							initial={initialOptions}
+							whileInView={whileInViewOptions}
+							transition={{
+								duration: 2,
+								delay: 10
+							}}
+						>
+							<BouncingDownArrow />
+						</motion.div>
+
 						<div 
 							ref={stanza8WrapperScope} 
 							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper8}`}>
@@ -727,7 +845,7 @@ export default function TheJuiceProse () {
 
 					<SpacerComponent />
 
-					{/* STANZA #9 ===================================================================================== */}
+					{/* STANZA #9 "knowing that their love..."===================================================================================== */}
 					<motion.div 
 						className={styles.newStanzaWrapper}
 						initial={initialOptions}
@@ -748,6 +866,7 @@ export default function TheJuiceProse () {
 								options={typewriterOptions}
 							/> }
 						</article>
+
 						<div 
 							ref={stanza9WrapperScope} 
 							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper9}`}>

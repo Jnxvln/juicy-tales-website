@@ -24,7 +24,7 @@ export default function ChefsSymphony () {
 	// Stanza 2 State
 	
 	const stanza2WrapperRef = useRef(null)
-	const stanza2_InView = useInView({ root: stanza2WrapperRef })
+	const stanza2_InView = useInView(stanza2WrapperRef)
 	const [stanza2TW_P1, setStanza2TW_P1] = useState<TypewriterClass>()
 	const [stanza2TW_P2, setStanza2TW_P2] = useState<TypewriterClass>()
 
