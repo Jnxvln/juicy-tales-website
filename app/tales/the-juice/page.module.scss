@@ -45,6 +45,13 @@ $navigationHeightOffset: 80px;
 	border-radius: 6px;
 }
 
+.volumeUpNotice {
+	text-align: center;
+	font-weight: bold;
+	color: rgb(146, 82, 94);
+	margin-top: 1.5em;
+}
+
 .beginButtonWrapper {
 	// border: 4px solid cyan;
 	width: 100%;
@@ -160,7 +167,7 @@ $navigationHeightOffset: 80px;
 
 // #region MEDIA QUERIES ===========================================================================================================================
 
-// Mobile Small 320px
+// Mobile Extra Small  < 320px
 @media screen and (max-width: 319px) {
 	.storyContainer {
 		// border: 4px dashed cyan;
@@ -174,7 +181,7 @@ $navigationHeightOffset: 80px;
 	}
 }
 
-// Mobile Medium 375px
+// Mobile Small 320px
 @media screen and (min-width: 320px) {
 	.storyContainer {
 		// border: 4px dashed limegreen;
@@ -188,28 +195,42 @@ $navigationHeightOffset: 80px;
 		padding-bottom: 1em;
 	}
 	.stanza * {
-		font-size: 0.8rem;
+		font-size: 0.9rem;
 	}
 	.newStanzaWrapper {
 		padding: 0.5em;
 	}
 	.navStoryTitle {
-		// color: yellow !important;
 		font-size: 1.1rem !important;
+	}
+}
+
+// Mobile Medium 375px
+@media screen and (min-width: 375px) {
+	.stanza * {
+		font-size: 1rem;
+	}
+	.newStanzaWrapper {
+		padding: 0.5em;
+	}
+	.navStoryTitle {
+		font-size: 1.3rem !important;
 	}
 }
 
 // Mobile Large 425px
 @media screen and (min-width: 425px) {
-	.storyContainer {
-		// border: 4px dashed cornflowerblue;
-	}
-
+	// .storyContainer {
+	// 	// border: 4px dashed tomato;
+	// }
 	.stanza * {
-		font-size: 1rem;
+		font-size: 1.1rem;
 	}
 	.stanzaImageWrapper {
 		height: 50svh;
+	}
+	.navStoryTitle {
+		font-size: 1.5rem !important;
 	}
 }
 
@@ -219,12 +240,14 @@ $navigationHeightOffset: 80px;
 		// border: 4px dashed white;
 		padding: 3em;
 	}
-
 	.stanza * {
 		font-size: 1.3rem;
 	}
 	.stanzaImageWrapper {
 		height: 70svh;
+	}
+	.navStoryTitle {
+		font-size: 1.8rem !important;
 	}
 }
 
@@ -239,6 +262,9 @@ $navigationHeightOffset: 80px;
 	}
 	.stanzaImageWrapper {
 		height: 75svh;
+	}
+	.navStoryTitle {
+		font-size: 2.5rem !important;
 	}
 }
 // #endregion

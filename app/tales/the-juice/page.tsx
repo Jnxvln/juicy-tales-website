@@ -5,10 +5,12 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, useAnimate, useInView } from 'framer-motion'
 import Typewriter, { TypewriterClass } from 'typewriter-effect'
 import { useGlobalAudioPlayer } from 'react-use-audio-player';
-import styles from './page.module.scss'
 import EndCard from '@/app/components/EndCard/EndCard';
 import BouncingDownArrow from '@/app/components/BouncingDownArrow/BouncingDownArrow';
 import VerticalSpacer from '@/app/components/VerticalSpacer/VerticalSpacer';
+import { Titan_One } from "next/font/google"
+import styles from './page.module.scss'
+
 
 // #region TYPES
 export type TStanza = {
@@ -42,6 +44,12 @@ const transitionOptions = {
 	duration: 2
 }
 // #endregion
+
+const TitanOne = Titan_One({
+	weight: "400",
+	subsets: ['latin'],
+	display: 'swap'
+})
 
 export default function TheJuiceProse () {
 
@@ -175,6 +183,7 @@ export default function TheJuiceProse () {
 	const [storyContainerScope, storyContainerAnimate] = useAnimate()
 	const [headerScope, headerAnimate] = useAnimate()
 	const [headerTitleScope, headerTitleAnimate] = useAnimate()
+	const [volumeNoticeScope, volumeNoticeAnimate] = useAnimate()
 	const [beginButtonScope, beginButtonAnimate] = useAnimate()
 
 	// Stanza 0 Animations
@@ -235,6 +244,7 @@ export default function TheJuiceProse () {
 		// 1. Fade out the Begin button
 		beginButtonAnimate(beginButtonScope.current, { opacity: 0 }, { duration: 3 })
 		headerAnimate(headerScope.current, { opacity: 0 }, { duration: 3 })
+		volumeNoticeAnimate(volumeNoticeScope.current, { opacity: 0 }, { duration: 3 })
 		await headerTitleAnimate(headerTitleScope.current, { opacity: 1, color: '#15E6AE' }, { duration: 3, delay: 2 })
 
 		const headerElm = document.getElementById('header')
@@ -446,16 +456,23 @@ export default function TheJuiceProse () {
 
 			{/* HEADER */}
 			<motion.header id="header" ref={headerScope} className={styles.header}>
-				<h1 className={styles.title}>{literature.title}</h1>
+				<h1 className={`${styles.title} ${TitanOne.className}`}>{literature.title}</h1>
 			</motion.header>
 
 			{/* STORY SECTION */}
 			<motion.section ref={storyContainerScope} className={styles.storyContainer}>
 				<div>
+
+					<motion.div ref={volumeNoticeScope} className={styles.volumeUpNotice}>
+						Turn volume up for best experience
+					</motion.div>
+
 					{/* Begin Button */}
 					<motion.div ref={beginButtonScope} className={styles.beginButtonWrapper} initial={{ opacity: 1 }}>
 						<button disabled={begin} type="button" onClick={onBegin} className="bg-rose-800 hover:bg-rose-900 px-6 py-3 rounded-lg font-bold transition-colors duration-100">Begin</button>
 					</motion.div>
+
+
 
 					<br/>
 					<br/>
