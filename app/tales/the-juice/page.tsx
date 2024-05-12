@@ -8,6 +8,7 @@ import { useGlobalAudioPlayer } from 'react-use-audio-player';
 import styles from './page.module.scss'
 import EndCard from '@/app/components/EndCard/EndCard';
 
+// #region TYPES
 export type TStanza = {
 	id: number;
 	part1: string;
@@ -19,8 +20,9 @@ export type TLiterature = {
 	type: "poem" | "prose" | "story" | "other";
 	stanzas: TStanza[];
 }
+// #endregion
 
-// #region Typewriter Options
+// #region TYPEWRITER OPTIONS
 const typewriterOptions = {
 	wrapperClassName: styles.typewriterWrapper,
 	cursorClassName: styles.typewriterCursor
