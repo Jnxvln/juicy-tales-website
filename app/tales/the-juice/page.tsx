@@ -110,53 +110,63 @@ export default function TheJuiceProse () {
 	
 	// Stanza 0 State
 	const stanza0WrapperRef = useRef(null)
-	const stanza0_InView = useInView({ root: stanza0WrapperRef })
+	// const stanza0_InView = useInView({ root: stanza0WrapperRef })
+	const stanza0_InView = useInView(stanza0WrapperRef)
 	const [stanza0TW_P1, setStanza0TW_P1] = useState<TypewriterClass>()
 
 	// Stanza 1 State
 	const stanza1WrapperRef = useRef(null)
-	const stanza1_InView = useInView({ root: stanza1WrapperRef })
+	// const stanza1_InView = useInView({ root: stanza1WrapperRef })
+	const stanza1_InView = useInView(stanza1WrapperRef)
 	const [stanza1TW_P1, setStanza1TW_P1] = useState<TypewriterClass>()
 
 	// Stanza 2 State
 	const stanza2WrapperRef = useRef(null)
-	const stanza2_InView = useInView({ root: stanza2WrapperRef })
+	// const stanza2_InView = useInView({ root: stanza2WrapperRef })
+	const stanza2_InView = useInView(stanza2WrapperRef)
 	const [stanza2TW_P1, setStanza2TW_P1] = useState<TypewriterClass>()
 
 	// Stanza 3 State
 	const stanza3WrapperRef = useRef(null)
-	const stanza3_InView = useInView({ root: stanza3WrapperRef })
+	// const stanza3_InView = useInView({ root: stanza3WrapperRef })
+	const stanza3_InView = useInView(stanza3WrapperRef)
 	const [stanza3TW_P1, setStanza3TW_P1] = useState<TypewriterClass>()
 
 	// Stanza 4 State
 	const stanza4WrapperRef = useRef(null)
-	const stanza4_InView = useInView({ root: stanza4WrapperRef })
+	// const stanza4_InView = useInView({ root: stanza4WrapperRef })
+	const stanza4_InView = useInView(stanza4WrapperRef)
 	const [stanza4TW_P1, setStanza4TW_P1] = useState<TypewriterClass>()
 
 	// Stanza 5 State (two)
 	const stanza5WrapperRef = useRef(null)
-	const stanza5_InView = useInView({ root: stanza5WrapperRef })
+	// const stanza5_InView = useInView({ root: stanza5WrapperRef })
+	const stanza5_InView = useInView(stanza5WrapperRef)
 	const [stanza5TW_P1, setStanza5TW_P1] = useState<TypewriterClass>()
 	const [stanza5TW_P2, setStanza5TW_P2] = useState<TypewriterClass>()
 
 	// Stanza 6 State
 	const stanza6WrapperRef = useRef(null)
-	const stanza6_InView = useInView({ root: stanza6WrapperRef })
+	// const stanza6_InView = useInView({ root: stanza6WrapperRef })
+	const stanza6_InView = useInView(stanza6WrapperRef)
 	const [stanza6TW_P1, setStanza6TW_P1] = useState<TypewriterClass>()
 
 	// Stanza 7 State
 	const stanza7WrapperRef = useRef(null)
-	const stanza7_InView = useInView({ root: stanza7WrapperRef })
+	// const stanza7_InView = useInView({ root: stanza7WrapperRef })
+	const stanza7_InView = useInView(stanza7WrapperRef)
 	const [stanza7TW_P1, setStanza7TW_P1] = useState<TypewriterClass>()
 
 	// Stanza 8 State
 	const stanza8WrapperRef = useRef(null)
-	const stanza8_InView = useInView({ root: stanza8WrapperRef })
+	// const stanza8_InView = useInView({ root: stanza8WrapperRef })
+	const stanza8_InView = useInView(stanza8WrapperRef)
 	const [stanza8TW_P1, setStanza8TW_P1] = useState<TypewriterClass>()
 
 	// Stanza 9 State
 	const stanza9WrapperRef = useRef(null)
-	const stanza9_InView = useInView({ root: stanza6WrapperRef })
+	// const stanza9_InView = useInView({ root: stanza6WrapperRef })
+	const stanza9_InView = useInView(stanza6WrapperRef)
 	const [stanza9TW_P1, setStanza9TW_P1] = useState<TypewriterClass>()
 
 	// #endregion
