@@ -4,10 +4,15 @@ $disabledBgColor: rgb(47, 47, 47);
 $disabledTextColor: gray;
 
 .container {
-	border: 2px solid orange;
+	// border: 2px solid orange;
 	width: 100%;
-	height: 100%;
 	padding: 3em;
+}
+
+.containerContent {
+	// border: 2px dotted hotpink;
+	max-width: 600px;
+	margin: 0 auto;
 }
 
 .header {
@@ -27,10 +32,10 @@ $disabledTextColor: gray;
 }
 
 .menuList {
-	list-style-type: none;
+	// border: 1px dotted cornflowerblue;
+	display: flex;
 	margin: 0;
 	padding: 0;
-	display: flex;
 	flex-direction: column;
 	gap: 1em;
 }
@@ -70,6 +75,11 @@ $disabledTextColor: gray;
 		transition: background-color 0.3s ease-in-out;
 
 	}
+}
+
+.disclaimer {
+	// border: 2px solid red;
+	margin-top: 2em;
 }
 
 // #region MEDIA QUERIES
