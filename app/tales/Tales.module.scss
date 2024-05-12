@@ -1,5 +1,8 @@
 @import "/app/styles/variables.module.scss";
 
+$disabledBgColor: rgb(47, 47, 47);
+$disabledTextColor: gray;
+
 .container {
 	border: 2px solid orange;
 	width: 100%;
@@ -22,12 +25,22 @@
 	border-radius: 3px;
 	margin: 0;
 	padding: 0.5em 1.5em;
-	width: 260px;
+	width: 300px;
 	text-align: center;
 
 	&:hover {
 		background-color: rgba($storyPageHeaderBgColor, 0.61);
 		// transition: background-color 0.3s ease-in-out;
+	}
+}
+
+.disabledMenuItem {
+	background-color: $disabledBgColor;
+	color: $disabledTextColor;
+
+	&:hover {
+		background-color: $disabledBgColor;
+		cursor: default;
 	}
 }
 
