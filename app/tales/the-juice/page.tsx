@@ -478,16 +478,18 @@ export default function TheJuiceProse () {
 							/> }
 						</article>
 
-						<motion.div
-							initial={initialOptions}
-							whileInView={whileInViewOptions}
-							transition={{
-								duration: 2,
-								delay: 18
-							}}
-						>
-							<BouncingDownArrow />
-						</motion.div>
+						{ begin && 
+							<motion.div
+								initial={initialOptions}
+								whileInView={whileInViewOptions}
+								transition={{
+									duration: 2,
+									delay: 18
+								}}
+							>
+								<BouncingDownArrow />
+							</motion.div>
+						}
 
 						<div 
 							ref={stanza0WrapperScope} 
@@ -496,388 +498,395 @@ export default function TheJuiceProse () {
 						</div>
 					</div>
 
-					<SpacerComponent />
 
-					{/* STANZA #1 "Day in and day out..." ==================================================================================================== */}
-					<motion.div 
-						className={styles.newStanzaWrapper}
-						initial={initialOptions}
-						whileInView={whileInViewOptions}
-						transition={transitionOptions}
-						onViewportEnter={() => startStanza1Animation()}
-						onViewportLeave={() => stopStanza1Animation()}
-					>
-						<article ref={stanza1Scope} className={`${styles.stanza} ${styles.stanza0}`}>
-							{ literature?.stanzas[1]?.part1 && <Typewriter
-								onInit={(typewriter: TypewriterClass) => {
-									if (!literature?.stanzas[1]?.part1) return;
+					{ begin && 
+						<div>
+							<SpacerComponent />
+							
+							{/* STANZA #1 "Day in and day out..." ==================================================================================================== */}
+							<motion.div 
+								className={styles.newStanzaWrapper}
+								initial={initialOptions}
+								whileInView={whileInViewOptions}
+								transition={transitionOptions}
+								onViewportEnter={() => startStanza1Animation()}
+								onViewportLeave={() => stopStanza1Animation()}
+							>
+								<article ref={stanza1Scope} className={`${styles.stanza} ${styles.stanza0}`}>
+									{ literature?.stanzas[1]?.part1 && <Typewriter
+										onInit={(typewriter: TypewriterClass) => {
+											if (!literature?.stanzas[1]?.part1) return;
 
-									setStanza1TW_P1(typewriter)
-									typewriter.changeDelay(45)
-									typewriter.typeString(literature.stanzas[1].part1)
-								}}
-								options={typewriterOptions}
-							/> }
-						</article>
+											setStanza1TW_P1(typewriter)
+											typewriter.changeDelay(45)
+											typewriter.typeString(literature.stanzas[1].part1)
+										}}
+										options={typewriterOptions}
+									/> }
+								</article>
 
-						<motion.div
-							initial={initialOptions}
-							whileInView={whileInViewOptions}
-							transition={{
-								duration: 2,
-								delay: 12
-							}}
-						>
-							<BouncingDownArrow />
-						</motion.div>
+								<motion.div
+									initial={initialOptions}
+									whileInView={whileInViewOptions}
+									transition={{
+										duration: 2,
+										delay: 12
+									}}
+								>
+									<BouncingDownArrow />
+								</motion.div>
 
-						<div 
-							ref={stanza1WrapperScope} 
-							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper1}`}>
+								<div 
+									ref={stanza1WrapperScope} 
+									className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper1}`}>
+								</div>
+							</motion.div>
+
+							<SpacerComponent />
+
+							{/* STANZA #2 "The individual who is always present..."===================================================================================== */}
+							<motion.div 
+								className={styles.newStanzaWrapper}
+								initial={initialOptions}
+								whileInView={whileInViewOptions}
+								transition={transitionOptions}
+								onViewportEnter={() => startStanza2Animation()}
+								onViewportLeave={() => stopStanza2Animation()}
+							>
+								<article ref={stanza2Scope} className={`${styles.stanza} ${styles.stanza2}`}>
+									{ literature?.stanzas[2]?.part1 && <Typewriter
+										onInit={(typewriter: TypewriterClass) => {
+											if (!literature?.stanzas[2]?.part1) return;
+
+											setStanza2TW_P1(typewriter)
+											typewriter.changeDelay(45)
+											typewriter.typeString(literature.stanzas[2].part1)
+										}}
+										options={typewriterOptions}
+									/> }
+								</article>
+
+								<motion.div
+									initial={initialOptions}
+									whileInView={whileInViewOptions}
+									transition={{
+										duration: 2,
+										delay: 9
+									}}
+								>
+									<BouncingDownArrow />
+								</motion.div>
+
+								<div 
+									ref={stanza2WrapperScope} 
+									className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper2}`}>
+								</div>
+							</motion.div>
+
+							<SpacerComponent />
+
+							{/* STANZA #3 "Yet, despite their dedication..."===================================================================================== */}
+
+							<motion.div 
+								className={styles.newStanzaWrapper}
+								initial={initialOptions}
+								whileInView={whileInViewOptions}
+								transition={transitionOptions}
+								onViewportEnter={() => startStanza3Animation()}
+								onViewportLeave={() => stopStanza3Animation()}
+							>
+								<article ref={stanza3Scope} className={`${styles.stanza} ${styles.stanza3}`}>
+									{ literature?.stanzas[3]?.part1 && <Typewriter
+										onInit={(typewriter: TypewriterClass) => {
+											if (!literature?.stanzas[3]?.part1) return;
+
+											setStanza3TW_P1(typewriter)
+											typewriter.changeDelay(45)
+											typewriter.typeString(literature.stanzas[3].part1)
+										}}
+										options={typewriterOptions}
+									/> }
+								</article>
+
+								<motion.div
+									initial={initialOptions}
+									whileInView={whileInViewOptions}
+									transition={{
+										duration: 2,
+										delay: 9
+									}}
+								>
+									<BouncingDownArrow />
+								</motion.div>
+
+								<div 
+									ref={stanza3WrapperScope} 
+									className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper3}`}>
+								</div>
+							</motion.div>
+
+							<SpacerComponent />
+
+							{/* STANZA #4 "It can be a lonely journey..."===================================================================================== */}
+
+							<motion.div 
+								className={styles.newStanzaWrapper}
+								initial={initialOptions}
+								whileInView={whileInViewOptions}
+								transition={transitionOptions}
+								onViewportEnter={() => startStanza4Animation()}
+								onViewportLeave={() => stopStanza4Animation()}
+							>
+								<article ref={stanza4Scope} className={`${styles.stanza} ${styles.stanza4}`}>
+									{ literature?.stanzas[4]?.part1 && <Typewriter
+										onInit={(typewriter: TypewriterClass) => {
+											if (!literature?.stanzas[4]?.part1) return;
+
+											setStanza4TW_P1(typewriter)
+											typewriter.changeDelay(45)
+											typewriter.typeString(literature.stanzas[4].part1)
+										}}
+										options={typewriterOptions}
+									/> }
+								</article>
+
+								<motion.div
+									initial={initialOptions}
+									whileInView={whileInViewOptions}
+									transition={{
+										duration: 2,
+										delay: 8
+									}}
+								>
+									<BouncingDownArrow />
+								</motion.div>
+
+								<div 
+									ref={stanza4WrapperScope} 
+									className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper4}`}>
+								</div>
+							</motion.div>
+
+							<SpacerComponent />
+
+							{/* STANZA #5 "As they pour their heart..."===================================================================================== */}
+
+							<motion.div 
+								className={styles.newStanzaWrapper}
+								initial={initialOptions}
+								whileInView={whileInViewOptions}
+								transition={transitionOptions}
+								onViewportEnter={() => startStanza5Animation()}
+								onViewportLeave={() => stopStanza5Animation()}
+							>
+								<article ref={stanza5Scope} className={`${styles.stanza} ${styles.stanza5}`}>
+
+									{/* STANZA 5 : PART 1 */}
+									{ literature?.stanzas[5]?.part1 && <Typewriter
+										onInit={(typewriter: TypewriterClass) => {
+											if (!literature?.stanzas[5]?.part1) return;
+
+											setStanza5TW_P1(typewriter)
+											typewriter.changeDelay(45)
+											typewriter.typeString(literature.stanzas[5].part1)
+										}}
+										options={typewriterOptions}
+									/> }
+
+									<div className="my-3"></div>
+
+									{/* STANZA 5 : PART 2 */}
+									{ literature?.stanzas[5]?.part2 && <Typewriter
+										onInit={(typewriter: TypewriterClass) => {
+											if (!literature?.stanzas[5]?.part2) return;
+
+											setStanza5TW_P2(typewriter)
+											typewriter.changeDelay(90)
+											typewriter.typeString(literature.stanzas[5].part2)
+										}}
+										options={typewriterOptions}
+									/> }
+								</article>
+
+								<motion.div
+									initial={initialOptions}
+									whileInView={whileInViewOptions}
+									transition={{
+										duration: 2,
+										delay: 18
+									}}
+								>
+									<BouncingDownArrow />
+								</motion.div>
+
+								<div 
+									ref={stanza5WrapperScope} 
+									className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper5}`}>
+								</div>
+							</motion.div>
+
+							<SpacerComponent />
+
+							{/* STANZA #6 "Longing for a moment of respite..."===================================================================================== */}
+							<motion.div 
+								className={styles.newStanzaWrapper}
+								initial={initialOptions}
+								whileInView={whileInViewOptions}
+								transition={transitionOptions}
+								onViewportEnter={() => startStanza6Animation()}
+								onViewportLeave={() => stopStanza6Animation()}
+							>
+								<article ref={stanza6Scope} className={`${styles.stanza} ${styles.stanza6}`}>
+									{ literature?.stanzas[6]?.part1 && <Typewriter
+										onInit={(typewriter: TypewriterClass) => {
+											if (!literature?.stanzas[6]?.part1) return;
+
+											setStanza6TW_P1(typewriter)
+											typewriter.changeDelay(45)
+											typewriter.typeString(literature.stanzas[6].part1)
+										}}
+										options={typewriterOptions}
+									/> }
+								</article>
+
+								<motion.div
+									initial={initialOptions}
+									whileInView={whileInViewOptions}
+									transition={{
+										duration: 2,
+										delay: 9
+									}}
+								>
+									<BouncingDownArrow />
+								</motion.div>
+
+								<div 
+									ref={stanza6WrapperScope} 
+									className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper6}`}>
+								</div>
+							</motion.div>
+
+							<SpacerComponent />
+
+							{/* STANZA #7 "giving their all..."===================================================================================== */}
+							<motion.div 
+								className={styles.newStanzaWrapper}
+								initial={initialOptions}
+								whileInView={whileInViewOptions}
+								transition={transitionOptions}
+								onViewportEnter={() => startStanza7Animation()}
+								onViewportLeave={() => stopStanza7Animation()}
+							>
+								<article ref={stanza7Scope} className={`${styles.stanza} ${styles.stanza7}`}>
+									{ literature?.stanzas[7]?.part1 && <Typewriter
+										onInit={(typewriter: TypewriterClass) => {
+											if (!literature?.stanzas[7]?.part1) return;
+
+											setStanza7TW_P1(typewriter)
+											typewriter.changeDelay(45)
+											typewriter.typeString(literature.stanzas[7].part1)
+										}}
+										options={typewriterOptions}
+									/> }
+								</article>
+
+								<motion.div
+									initial={initialOptions}
+									whileInView={whileInViewOptions}
+									transition={{
+										duration: 2,
+										delay: 11
+									}}
+								>
+									<BouncingDownArrow />
+								</motion.div>
+
+								<div 
+									ref={stanza7WrapperScope} 
+									className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper7}`}>
+								</div>
+							</motion.div>
+
+							<SpacerComponent />
+
+							{/* STANZA #8 "But until that day comes..."===================================================================================== */}
+							<motion.div 
+								className={styles.newStanzaWrapper}
+								initial={initialOptions}
+								whileInView={whileInViewOptions}
+								transition={transitionOptions}
+								onViewportEnter={() => startStanza8Animation()}
+								onViewportLeave={() => stopStanza8Animation()}
+							>
+								<article ref={stanza8Scope} className={`${styles.stanza} ${styles.stanza8}`}>
+									{ literature?.stanzas[8]?.part1 && <Typewriter
+										onInit={(typewriter: TypewriterClass) => {
+											if (!literature?.stanzas[8]?.part1) return;
+
+											setStanza8TW_P1(typewriter)
+											typewriter.changeDelay(45)
+											typewriter.typeString(literature.stanzas[8].part1)
+										}}
+										options={typewriterOptions}
+									/> }
+								</article>
+
+								<motion.div
+									initial={initialOptions}
+									whileInView={whileInViewOptions}
+									transition={{
+										duration: 2,
+										delay: 10
+									}}
+								>
+									<BouncingDownArrow />
+								</motion.div>
+
+								<div 
+									ref={stanza8WrapperScope} 
+									className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper8}`}>
+								</div>
+							</motion.div>
+
+							<SpacerComponent />
+
+							{/* STANZA #9 "knowing that their love..."===================================================================================== */}
+							<motion.div 
+								className={styles.newStanzaWrapper}
+								initial={initialOptions}
+								whileInView={whileInViewOptions}
+								transition={transitionOptions}
+								onViewportEnter={() => startStanza9Animation()}
+								onViewportLeave={() => stopStanza9Animation()}
+							>
+								<article ref={stanza9Scope} className={`${styles.stanza} ${styles.stanza9}`}>
+									{ literature?.stanzas[9]?.part1 && <Typewriter
+										onInit={(typewriter: TypewriterClass) => {
+											if (!literature?.stanzas[9]?.part1) return;
+
+											setStanza9TW_P1(typewriter)
+											typewriter.changeDelay(45)
+											typewriter.typeString(literature.stanzas[9].part1)
+										}}
+										options={typewriterOptions}
+									/> }
+								</article>
+
+								<div 
+									ref={stanza9WrapperScope} 
+									className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper9}`}>
+								</div>
+							</motion.div>
+
+							<SpacerComponent />
+
+							{/* ENDING CARD ===================================================================================== */}
+
+							<EndCard />
 						</div>
-					</motion.div>
+					}
+					
 
-					<SpacerComponent />
-
-					{/* STANZA #2 "The individual who is always present..."===================================================================================== */}
-					<motion.div 
-						className={styles.newStanzaWrapper}
-						initial={initialOptions}
-						whileInView={whileInViewOptions}
-						transition={transitionOptions}
-						onViewportEnter={() => startStanza2Animation()}
-						onViewportLeave={() => stopStanza2Animation()}
-					>
-						<article ref={stanza2Scope} className={`${styles.stanza} ${styles.stanza2}`}>
-							{ literature?.stanzas[2]?.part1 && <Typewriter
-								onInit={(typewriter: TypewriterClass) => {
-									if (!literature?.stanzas[2]?.part1) return;
-
-									setStanza2TW_P1(typewriter)
-									typewriter.changeDelay(45)
-									typewriter.typeString(literature.stanzas[2].part1)
-								}}
-								options={typewriterOptions}
-							/> }
-						</article>
-
-						<motion.div
-							initial={initialOptions}
-							whileInView={whileInViewOptions}
-							transition={{
-								duration: 2,
-								delay: 9
-							}}
-						>
-							<BouncingDownArrow />
-						</motion.div>
-
-						<div 
-							ref={stanza2WrapperScope} 
-							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper2}`}>
-						</div>
-					</motion.div>
-
-					<SpacerComponent />
-
-					{/* STANZA #3 "Yet, despite their dedication..."===================================================================================== */}
-
-					<motion.div 
-						className={styles.newStanzaWrapper}
-						initial={initialOptions}
-						whileInView={whileInViewOptions}
-						transition={transitionOptions}
-						onViewportEnter={() => startStanza3Animation()}
-						onViewportLeave={() => stopStanza3Animation()}
-					>
-						<article ref={stanza3Scope} className={`${styles.stanza} ${styles.stanza3}`}>
-							{ literature?.stanzas[3]?.part1 && <Typewriter
-								onInit={(typewriter: TypewriterClass) => {
-									if (!literature?.stanzas[3]?.part1) return;
-
-									setStanza3TW_P1(typewriter)
-									typewriter.changeDelay(45)
-									typewriter.typeString(literature.stanzas[3].part1)
-								}}
-								options={typewriterOptions}
-							/> }
-						</article>
-
-						<motion.div
-							initial={initialOptions}
-							whileInView={whileInViewOptions}
-							transition={{
-								duration: 2,
-								delay: 9
-							}}
-						>
-							<BouncingDownArrow />
-						</motion.div>
-
-						<div 
-							ref={stanza3WrapperScope} 
-							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper3}`}>
-						</div>
-					</motion.div>
-
-					<SpacerComponent />
-
-					{/* STANZA #4 "It can be a lonely journey..."===================================================================================== */}
-
-					<motion.div 
-						className={styles.newStanzaWrapper}
-						initial={initialOptions}
-						whileInView={whileInViewOptions}
-						transition={transitionOptions}
-						onViewportEnter={() => startStanza4Animation()}
-						onViewportLeave={() => stopStanza4Animation()}
-					>
-						<article ref={stanza4Scope} className={`${styles.stanza} ${styles.stanza4}`}>
-							{ literature?.stanzas[4]?.part1 && <Typewriter
-								onInit={(typewriter: TypewriterClass) => {
-									if (!literature?.stanzas[4]?.part1) return;
-
-									setStanza4TW_P1(typewriter)
-									typewriter.changeDelay(45)
-									typewriter.typeString(literature.stanzas[4].part1)
-								}}
-								options={typewriterOptions}
-							/> }
-						</article>
-
-						<motion.div
-							initial={initialOptions}
-							whileInView={whileInViewOptions}
-							transition={{
-								duration: 2,
-								delay: 8
-							}}
-						>
-							<BouncingDownArrow />
-						</motion.div>
-
-						<div 
-							ref={stanza4WrapperScope} 
-							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper4}`}>
-						</div>
-					</motion.div>
-
-					<SpacerComponent />
-
-					{/* STANZA #5 "As they pour their heart..."===================================================================================== */}
-
-					<motion.div 
-						className={styles.newStanzaWrapper}
-						initial={initialOptions}
-						whileInView={whileInViewOptions}
-						transition={transitionOptions}
-						onViewportEnter={() => startStanza5Animation()}
-						onViewportLeave={() => stopStanza5Animation()}
-					>
-						<article ref={stanza5Scope} className={`${styles.stanza} ${styles.stanza5}`}>
-
-							{/* STANZA 5 : PART 1 */}
-							{ literature?.stanzas[5]?.part1 && <Typewriter
-								onInit={(typewriter: TypewriterClass) => {
-									if (!literature?.stanzas[5]?.part1) return;
-
-									setStanza5TW_P1(typewriter)
-									typewriter.changeDelay(45)
-									typewriter.typeString(literature.stanzas[5].part1)
-								}}
-								options={typewriterOptions}
-							/> }
-
-							<div className="my-3"></div>
-
-							{/* STANZA 5 : PART 2 */}
-							{ literature?.stanzas[5]?.part2 && <Typewriter
-								onInit={(typewriter: TypewriterClass) => {
-									if (!literature?.stanzas[5]?.part2) return;
-
-									setStanza5TW_P2(typewriter)
-									typewriter.changeDelay(90)
-									typewriter.typeString(literature.stanzas[5].part2)
-								}}
-								options={typewriterOptions}
-							/> }
-						</article>
-
-						<motion.div
-							initial={initialOptions}
-							whileInView={whileInViewOptions}
-							transition={{
-								duration: 2,
-								delay: 18
-							}}
-						>
-							<BouncingDownArrow />
-						</motion.div>
-
-						<div 
-							ref={stanza5WrapperScope} 
-							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper5}`}>
-						</div>
-					</motion.div>
-
-					<SpacerComponent />
-
-					{/* STANZA #6 "Longing for a moment of respite..."===================================================================================== */}
-					<motion.div 
-						className={styles.newStanzaWrapper}
-						initial={initialOptions}
-						whileInView={whileInViewOptions}
-						transition={transitionOptions}
-						onViewportEnter={() => startStanza6Animation()}
-						onViewportLeave={() => stopStanza6Animation()}
-					>
-						<article ref={stanza6Scope} className={`${styles.stanza} ${styles.stanza6}`}>
-							{ literature?.stanzas[6]?.part1 && <Typewriter
-								onInit={(typewriter: TypewriterClass) => {
-									if (!literature?.stanzas[6]?.part1) return;
-
-									setStanza6TW_P1(typewriter)
-									typewriter.changeDelay(45)
-									typewriter.typeString(literature.stanzas[6].part1)
-								}}
-								options={typewriterOptions}
-							/> }
-						</article>
-
-						<motion.div
-							initial={initialOptions}
-							whileInView={whileInViewOptions}
-							transition={{
-								duration: 2,
-								delay: 9
-							}}
-						>
-							<BouncingDownArrow />
-						</motion.div>
-
-						<div 
-							ref={stanza6WrapperScope} 
-							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper6}`}>
-						</div>
-					</motion.div>
-
-					<SpacerComponent />
-
-					{/* STANZA #7 "giving their all..."===================================================================================== */}
-					<motion.div 
-						className={styles.newStanzaWrapper}
-						initial={initialOptions}
-						whileInView={whileInViewOptions}
-						transition={transitionOptions}
-						onViewportEnter={() => startStanza7Animation()}
-						onViewportLeave={() => stopStanza7Animation()}
-					>
-						<article ref={stanza7Scope} className={`${styles.stanza} ${styles.stanza7}`}>
-							{ literature?.stanzas[7]?.part1 && <Typewriter
-								onInit={(typewriter: TypewriterClass) => {
-									if (!literature?.stanzas[7]?.part1) return;
-
-									setStanza7TW_P1(typewriter)
-									typewriter.changeDelay(45)
-									typewriter.typeString(literature.stanzas[7].part1)
-								}}
-								options={typewriterOptions}
-							/> }
-						</article>
-
-						<motion.div
-							initial={initialOptions}
-							whileInView={whileInViewOptions}
-							transition={{
-								duration: 2,
-								delay: 11
-							}}
-						>
-							<BouncingDownArrow />
-						</motion.div>
-
-						<div 
-							ref={stanza7WrapperScope} 
-							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper7}`}>
-						</div>
-					</motion.div>
-
-					<SpacerComponent />
-
-					{/* STANZA #8 "But until that day comes..."===================================================================================== */}
-					<motion.div 
-						className={styles.newStanzaWrapper}
-						initial={initialOptions}
-						whileInView={whileInViewOptions}
-						transition={transitionOptions}
-						onViewportEnter={() => startStanza8Animation()}
-						onViewportLeave={() => stopStanza8Animation()}
-					>
-						<article ref={stanza8Scope} className={`${styles.stanza} ${styles.stanza8}`}>
-							{ literature?.stanzas[8]?.part1 && <Typewriter
-								onInit={(typewriter: TypewriterClass) => {
-									if (!literature?.stanzas[8]?.part1) return;
-
-									setStanza8TW_P1(typewriter)
-									typewriter.changeDelay(45)
-									typewriter.typeString(literature.stanzas[8].part1)
-								}}
-								options={typewriterOptions}
-							/> }
-						</article>
-
-						<motion.div
-							initial={initialOptions}
-							whileInView={whileInViewOptions}
-							transition={{
-								duration: 2,
-								delay: 10
-							}}
-						>
-							<BouncingDownArrow />
-						</motion.div>
-
-						<div 
-							ref={stanza8WrapperScope} 
-							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper8}`}>
-						</div>
-					</motion.div>
-
-					<SpacerComponent />
-
-					{/* STANZA #9 "knowing that their love..."===================================================================================== */}
-					<motion.div 
-						className={styles.newStanzaWrapper}
-						initial={initialOptions}
-						whileInView={whileInViewOptions}
-						transition={transitionOptions}
-						onViewportEnter={() => startStanza9Animation()}
-						onViewportLeave={() => stopStanza9Animation()}
-					>
-						<article ref={stanza9Scope} className={`${styles.stanza} ${styles.stanza9}`}>
-							{ literature?.stanzas[9]?.part1 && <Typewriter
-								onInit={(typewriter: TypewriterClass) => {
-									if (!literature?.stanzas[9]?.part1) return;
-
-									setStanza9TW_P1(typewriter)
-									typewriter.changeDelay(45)
-									typewriter.typeString(literature.stanzas[9].part1)
-								}}
-								options={typewriterOptions}
-							/> }
-						</article>
-
-						<div 
-							ref={stanza9WrapperScope} 
-							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper9}`}>
-						</div>
-					</motion.div>
-
-					<SpacerComponent />
-
-					{/* ENDING CARD ===================================================================================== */}
-
-					<EndCard />
 
 				</div>
 			</motion.section>
