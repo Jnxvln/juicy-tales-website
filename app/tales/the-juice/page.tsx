@@ -10,6 +10,7 @@ import BouncingDownArrow from '@/app/components/BouncingDownArrow/BouncingDownAr
 import VerticalSpacer from '@/app/components/VerticalSpacer/VerticalSpacer';
 import { Titan_One } from "next/font/google"
 import styles from './page.module.scss'
+import BackArrow from '@/app/components/BackArrow/BackArrow';
 
 
 // #region TYPES
@@ -450,8 +451,8 @@ export default function TheJuiceProse () {
 
 			{/* NAVIGATION */}
 			<div className={styles.navigation}>
-				<Link href="/tales" className={styles.linkToTales}>More Tales</Link>
-				<motion.div onClick={onRefresh} className={styles.navStoryTitle} ref={headerTitleScope} initial={{ opacity: 0 }}>{literature.title}</motion.div>
+				<Link href="/tales" className={styles.linkToTales}><BackArrow/>Tales</Link>
+				<motion.div onClick={onRefresh} className={`${styles.navStoryTitle} ${TitanOne.className}`} ref={headerTitleScope} initial={{ opacity: 0 }}>{literature.title}</motion.div>
 			</div>
 
 			{/* HEADER */}
