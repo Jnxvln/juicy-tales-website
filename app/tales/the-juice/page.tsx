@@ -8,6 +8,7 @@ import { useGlobalAudioPlayer } from 'react-use-audio-player';
 import styles from './page.module.scss'
 import EndCard from '@/app/components/EndCard/EndCard';
 import BouncingDownArrow from '@/app/components/BouncingDownArrow/BouncingDownArrow';
+import VerticalSpacer from '@/app/components/VerticalSpacer/VerticalSpacer';
 
 // #region TYPES
 export type TStanza = {
@@ -41,10 +42,6 @@ const transitionOptions = {
 	duration: 2
 }
 // #endregion
-
-const SpacerComponent = () => (
-	<div className="my-96"></div>
-)
 
 export default function TheJuiceProse () {
 
@@ -238,7 +235,7 @@ export default function TheJuiceProse () {
 		// 1. Fade out the Begin button
 		beginButtonAnimate(beginButtonScope.current, { opacity: 0 }, { duration: 3 })
 		headerAnimate(headerScope.current, { opacity: 0 }, { duration: 3 })
-		await headerTitleAnimate(headerTitleScope.current, { opacity: 1, color: '#B23056' }, { duration: 3, delay: 2 })
+		await headerTitleAnimate(headerTitleScope.current, { opacity: 1, color: '#15E6AE' }, { duration: 3, delay: 2 })
 
 		const headerElm = document.getElementById('header')
 		if (headerElm) {
@@ -442,8 +439,8 @@ export default function TheJuiceProse () {
 		<div className={styles.pageContainer}>
 
 			{/* NAVIGATION */}
-			<div className={`flex items-center justify-between p-3 border-2 border-gray-700 ${styles.navigation}`}>
-				<Link href="/tales" className={`${styles.linkToTales} pl-3 hover:text-amber-600 transition-colors duration-200`}>Back to Tales</Link>
+			<div className={styles.navigation}>
+				<Link href="/tales" className={styles.linkToTales}>More Tales</Link>
 				<motion.div onClick={onRefresh} className={styles.navStoryTitle} ref={headerTitleScope} initial={{ opacity: 0 }}>{literature.title}</motion.div>
 			</div>
 
@@ -456,10 +453,11 @@ export default function TheJuiceProse () {
 			<motion.section ref={storyContainerScope} className={styles.storyContainer}>
 				<div>
 					{/* Begin Button */}
-					<motion.div ref={beginButtonScope} className="flex items-center justify-center p-8" initial={{ opacity: 1 }}>
-						<button type="button" onClick={onBegin} className="bg-rose-800 hover:bg-rose-900 px-6 py-3 rounded-lg font-bold transition-colors duration-100">Begin</button>
+					<motion.div ref={beginButtonScope} className={styles.beginButtonWrapper} initial={{ opacity: 1 }}>
+						<button disabled={begin} type="button" onClick={onBegin} className="bg-rose-800 hover:bg-rose-900 px-6 py-3 rounded-lg font-bold transition-colors duration-100">Begin</button>
 					</motion.div>
 
+					<br/>
 					<br/>
 
 					{/* STANZA #0 "the weight of responsibility..."==================================================================================================== */}
@@ -501,7 +499,7 @@ export default function TheJuiceProse () {
 
 					{ begin && 
 						<div>
-							<SpacerComponent />
+							<VerticalSpacer />
 							
 							{/* STANZA #1 "Day in and day out..." ==================================================================================================== */}
 							<motion.div 
@@ -542,7 +540,7 @@ export default function TheJuiceProse () {
 								</div>
 							</motion.div>
 
-							<SpacerComponent />
+							<VerticalSpacer />
 
 							{/* STANZA #2 "The individual who is always present..."===================================================================================== */}
 							<motion.div 
@@ -583,7 +581,7 @@ export default function TheJuiceProse () {
 								</div>
 							</motion.div>
 
-							<SpacerComponent />
+							<VerticalSpacer />
 
 							{/* STANZA #3 "Yet, despite their dedication..."===================================================================================== */}
 
@@ -625,7 +623,7 @@ export default function TheJuiceProse () {
 								</div>
 							</motion.div>
 
-							<SpacerComponent />
+							<VerticalSpacer />
 
 							{/* STANZA #4 "It can be a lonely journey..."===================================================================================== */}
 
@@ -667,7 +665,7 @@ export default function TheJuiceProse () {
 								</div>
 							</motion.div>
 
-							<SpacerComponent />
+							<VerticalSpacer />
 
 							{/* STANZA #5 "As they pour their heart..."===================================================================================== */}
 
@@ -725,7 +723,7 @@ export default function TheJuiceProse () {
 								</div>
 							</motion.div>
 
-							<SpacerComponent />
+							<VerticalSpacer />
 
 							{/* STANZA #6 "Longing for a moment of respite..."===================================================================================== */}
 							<motion.div 
@@ -766,7 +764,7 @@ export default function TheJuiceProse () {
 								</div>
 							</motion.div>
 
-							<SpacerComponent />
+							<VerticalSpacer />
 
 							{/* STANZA #7 "giving their all..."===================================================================================== */}
 							<motion.div 
@@ -807,7 +805,7 @@ export default function TheJuiceProse () {
 								</div>
 							</motion.div>
 
-							<SpacerComponent />
+							<VerticalSpacer />
 
 							{/* STANZA #8 "But until that day comes..."===================================================================================== */}
 							<motion.div 
@@ -848,7 +846,7 @@ export default function TheJuiceProse () {
 								</div>
 							</motion.div>
 
-							<SpacerComponent />
+							<VerticalSpacer />
 
 							{/* STANZA #9 "knowing that their love..."===================================================================================== */}
 							<motion.div 
@@ -878,16 +876,13 @@ export default function TheJuiceProse () {
 								</div>
 							</motion.div>
 
-							<SpacerComponent />
+							<VerticalSpacer />
 
 							{/* ENDING CARD ===================================================================================== */}
 
-							<EndCard />
+							<EndCard onRestart={onRefresh} />
 						</div>
 					}
-					
-
-
 				</div>
 			</motion.section>
 		</div>

@@ -72,19 +72,25 @@
 .navSection {
 	// border: 3px dashed yellow;
 	position: relative;
-	margin-top: 1.5em;
+	margin-top: 3em;
 	width: 100%;
 	height: 100%;
 	text-align: center;
 
 
 	a {
-		color: white;
-		transition: color 0.3s ease-in-out;
+		color: #40abfd;
+		font-weight: 600;
+		background-color: rgb(92, 4, 27);
+		background: linear-gradient(rgb(92, 4, 27), rgba(2, 22, 44, 0.6));
+		padding: 0.5em 1.5em;
+		border-radius: 10px;
+		transition: color 0.1s ease-in-out;
 
 		&:hover {
-			color: rgb(0, 145, 255);
-			transition: color 0.3s ease-in-out;
+			color: white;
+			background: linear-gradient(rgb(117, 6, 35), rgba(4, 37, 73, 0.6));
+			transition: color 0.1s ease-in-out;
 		}
 	}
 }

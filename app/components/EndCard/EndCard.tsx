@@ -1,7 +1,12 @@
 import Link from 'next/link'
 import styles from './EndCard.module.scss'
+import { MouseEventHandler } from 'react'
 
-export default function EndCard () {
+type TEndCardParams = {
+	onRestart?: MouseEventHandler<HTMLButtonElement>
+}
+
+export default function EndCard ({ onRestart }: TEndCardParams) {
 
 	const defaultTitle = "The End"
 
@@ -13,6 +18,7 @@ export default function EndCard () {
 			<div className={styles.moreContainer}>
 				<nav className={styles.links}>
 					<Link href="/tales">More Tales</Link>
+					{ onRestart && <button type="button" onClick={onRestart}>Restart</button> }
 					<Link href="/">Home</Link>
 				</nav>
 			</div>
