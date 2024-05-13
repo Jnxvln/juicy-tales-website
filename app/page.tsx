@@ -26,7 +26,7 @@ export default function Home() {
 
         <section className={styles.quoteSection}>
           <blockquote className={styles.quote}>
-            Life isn{"'"}t about waiting for the storm to pass, it{"'"}s about learning to dance in the rain
+            Life isn&apos;t about waiting for the storm to pass, it&apos;s about learning to dance in the rain
             <div className={styles.quoteAuthor}>~ Vivian Greene</div>
           </blockquote>
 

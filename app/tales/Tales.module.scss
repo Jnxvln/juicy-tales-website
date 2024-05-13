@@ -50,8 +50,8 @@ $disabledTextColor: gray;
 	text-align: center;
 
 	&:hover {
-		background-color: rgba($storyPageHeaderBgColor, 0.61);
-		// transition: background-color 0.3s ease-in-out;
+		background-color: $storyPageHeaderBgColorHover;
+		transition: background-color 0.3s ease-in-out;
 	}
 }
 
@@ -66,12 +66,12 @@ $disabledTextColor: gray;
 }
 
 .homeMenuItem {
-	background-color: rgb(26, 23, 76);
+	background-color: $homeMenuItemBgColor;
 	transition: background-color 0.3s ease-in-out;
 	margin-top: 1em;
 	
 	&:hover {
-		background-color: rgb(38, 33, 115);
+		background-color: $homeMenuItemBgColorHover;
 		transition: background-color 0.3s ease-in-out;
 
 	}

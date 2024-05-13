@@ -2,85 +2,11 @@
 
 $titleUrl: "the_juice";
 $imageBaseUrl: "/images/" + $titleUrl;
-$navigationHeightOffset: 80px;
 
 .pageContainer {
 	// width: 100%;
 	width: 100svw;
 	max-width: 100svw;
-}
-
-// NAVIGATION
-.navigation {
-	// border: 3px dashed cyan;
-	position: fixed;
-	border-bottom: 2px solid rgb(51, 51, 51);
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	z-index: 999;
-	top: 0;
-	left: 0;
-	height: $navigationHeightOffset;
-	width: 100%;
-	background-color: black;
-}
-
-.navStoryTitle {
-	padding-right: 0.6em !important;
-	cursor: default;
-
-	&:hover {
-		color: #e67f19 !important;
-		transition: color 0.3s ease-in-out;
-		cursor: pointer;
-	}
-}
-
-.linkToTales {
-	margin-left: 1.3em;
-	display: flex;
-	gap: 8px;
-	align-items: center;
-	font-size: 1rem;
-	background-color: rgb(20, 33, 49);
-	transition: background-color 0.3s ease-in-out;
-	padding:  0.4em 0.8em;
-	border-radius: 6px;
-
-	&:hover {
-		background-color: rgb(28, 47, 70);
-		transition: background-color 0.3s ease-in-out;
-	}
-}
-
-.volumeUpNotice {
-	text-align: center;
-	font-weight: bold;
-	color: rgb(146, 82, 94);
-	margin-top: 1.5em;
-}
-
-.beginButtonWrapper {
-	// border: 4px solid cyan;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin-top: 2em;
-}
-
-.header {
-	background-color: $storyPageHeaderBgColor;
-	padding: 3em 1.5em;
-	position: relative;
-	top: $navigationHeightOffset;
-}
-
-.title {
-	font-size: 2rem;
-	text-align: center;
 }
 
 .storyContainer {
@@ -100,32 +26,32 @@ $navigationHeightOffset: 80px;
 	font-size: 1.5rem;
 }
 
-.newStanzaWrapper {
-	// border: 3px dashed orange;
-	max-width: 1280px;
-	margin: 0 auto;
-}
+// .newStanzaWrapper {
+// 	// border: 3px dashed orange;
+// 	max-width: 1280px;
+// 	margin: 0 auto;
+// }
 
-.stanzaImageWrapper {
-	background-size: cover;
-	background-position: center;
-	opacity: 0;
-	width: 100%;
-	height: 60svh;
-	margin: 0 auto;
-	border-radius: 20px;
-}
+// .stanzaImageWrapper {
+// 	background-size: cover;
+// 	background-position: center;
+// 	opacity: 0;
+// 	width: 100%;
+// 	height: 60svh;
+// 	margin: 0 auto;
+// 	border-radius: 20px;
+// }
 
-.stanza {
-	// border: 3px dashed red;
-	float: left;
-	transform: translateY(calc(-100% -  1px));
-	background-color: rgba(0,0,0,0.75);
-	opacity: 0;
-	width: 100%;
-	padding-bottom: 1em;
-	margin: 0 auto;
-}
+// .stanza {
+// 	// border: 3px dashed red;
+// 	float: left;
+// 	transform: translateY(calc(-100% -  1px));
+// 	background-color: rgba(0,0,0,0.75);
+// 	opacity: 0;
+// 	width: 100%;
+// 	padding-bottom: 1em;
+// 	margin: 0 auto;
+// }
 
 .stanza5 {
 	// border: 2px solid pink;
@@ -182,12 +108,6 @@ $navigationHeightOffset: 80px;
 		// border: 4px dashed cyan;
 		padding: 0.5em;
 	}
-	.stanzaImageWrapper {
-		height: 40svh;
-	}
-	.newStanzaWrapper {
-		padding: 0.5em;
-	}
 }
 
 // Mobile Small 320px
@@ -196,35 +116,10 @@ $navigationHeightOffset: 80px;
 		// border: 4px dashed limegreen;
 		padding: 0.5em;
 	}
-	.stanzaImageWrapper {
-		height: 50svh;
-	}
-	.stanza {
-		padding: 0.4em;
-		padding-bottom: 1em;
-	}
-	.stanza * {
-		font-size: 0.9rem;
-	}
-	.newStanzaWrapper {
-		padding: 0.5em;
-	}
-	.navStoryTitle {
-		font-size: 1.1rem !important;
-	}
 }
 
 // Mobile Medium 375px
 @media screen and (min-width: 375px) {
-	.stanza * {
-		font-size: 1rem;
-	}
-	.newStanzaWrapper {
-		padding: 0.5em;
-	}
-	.navStoryTitle {
-		font-size: 1.3rem !important;
-	}
 }
 
 // Mobile Large 425px
@@ -232,15 +127,6 @@ $navigationHeightOffset: 80px;
 	// .storyContainer {
 	// 	// border: 4px dashed tomato;
 	// }
-	.stanza * {
-		font-size: 1.1rem;
-	}
-	.stanzaImageWrapper {
-		height: 50svh;
-	}
-	.navStoryTitle {
-		font-size: 1.9rem !important;
-	}
 }
 
 // Tablet 768px
@@ -249,38 +135,16 @@ $navigationHeightOffset: 80px;
 		// border: 4px dashed white;
 		padding: 3em;
 	}
-	.stanza * {
-		font-size: 1.3rem;
-	}
-	.stanzaImageWrapper {
-		height: 70svh;
-	}
-	.navStoryTitle {
-		font-size: 2.3rem !important;
-	}
 }
 
 // Tablet 1024px
 @media screen and (min-width: 1024px) {
-	.navStoryTitle {
-		font-size: 2.8rem !important;
-	}
 }
 
 // Laptop Large 1440px
 @media screen and (min-width: 1440px) {
 	.storyContainer {
 		// border: 6px dotted limegreen;
-	}
-
-	.stanza * {
-		font-size: 1.6rem;
-	}
-	.stanzaImageWrapper {
-		height: 75svh;
-	}
-	.navStoryTitle {
-		font-size: 3.5rem !important;
 	}
 }
 // #endregion

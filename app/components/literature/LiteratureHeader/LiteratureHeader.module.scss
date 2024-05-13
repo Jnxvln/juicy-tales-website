@@ -1,0 +1,13 @@
+@import '/app/styles/variables.module.scss';
+
+.header {
+	background-color: $storyPageHeaderBgColor;
+	padding: 3em 1.5em;
+	position: relative;
+	top: $navigationHeightOffset;
+}
+
+.title {
+	font-size: 2rem;
+	text-align: center;
+}

@@ -1,0 +1,117 @@
+@import "/app/styles/variables.module.scss";
+
+.navigation {
+	// border: 3px dashed cyan;
+	position: fixed;
+	border-bottom: 2px solid rgb(51, 51, 51);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 999;
+	top: 0;
+	left: 0;
+	height: calc($navigationHeightOffset + 10px);
+	width: 100%;
+	background-color: rgb(0, 0, 0);
+}
+
+.navigationLinksList {
+	display: flex;
+	flex-direction: column-reverse;
+	gap: 0.5em;
+	margin-left: 1.3em;
+}
+
+.navLink {
+	display: flex;
+	align-items: center;
+	// background-color: $homeMenuItemBgColor;
+	gap: 0.5em;
+	font-size: 0.8rem;
+	transition: background-color 0.3s ease-in-out;
+	padding:  0.4em 0.8em;
+	width: 100%;
+	border-radius: 6px;
+
+	// &:first-child {
+	// 	margin-left: 1.3em;
+	// }
+
+	&:hover {
+		background-color: $homeMenuItemBgColorHover;
+		transition: background-color 0.3s ease-in-out;
+	}
+}
+
+.navStoryTitle {
+	padding-right: 0.6em !important;
+	cursor: default;
+
+	&:hover {
+		color: $literatureNavHeaderTitleColorHover !important;
+		transition: color 0.3s ease-in-out;
+		cursor: pointer;
+	}
+}
+
+// #region MEDIA QUERIES ===========================================================================================================================
+
+// Mobile Small 320px
+@media screen and (min-width: 320px) {
+	.navStoryTitle {
+		font-size: 1.1rem !important;
+	}
+}
+
+// Mobile Medium 375px
+@media screen and (min-width: 375px) {
+	.navStoryTitle {
+		font-size: 1.3rem !important;
+	}
+}
+
+// Mobile Large 425px
+@media screen and (min-width: 425px) {
+	.navStoryTitle {
+		font-size: 1.9rem !important;
+	}
+}
+
+// Tablet 768px
+@media screen and (min-width: 768px) {
+	.navStoryTitle {
+		font-size: 2.3rem !important;
+	}
+	.navigationLinksList {
+		flex-direction: row-reverse;
+		gap: 0.8em;
+	}
+	.navLink {
+		gap: 0.5em;
+		font-size: 1rem;
+		transition: background-color 0.3s ease-in-out;
+	}
+}
+
+// Tablet 1024px
+@media screen and (min-width: 1024px) {
+	.navStoryTitle {
+		font-size: 2.8rem !important;
+	}
+	.navigationLinksList {
+		gap: 1.3em;
+	}
+	.navLink {
+		gap: 0.5em;
+		font-size: 1.2rem;
+		transition: background-color 0.3s ease-in-out;
+	}
+}
+
+// Laptop Large 1440px
+@media screen and (min-width: 1440px) {
+	.navStoryTitle {
+		font-size: 3.5rem !important;
+	}
+}
+// #endregion

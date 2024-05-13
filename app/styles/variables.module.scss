@@ -13,5 +13,19 @@ $QuoteAuthorTextColor: #5d6e8f;
 $ArticleTitleFontFamily: 'Trade Winds', sans-serif;
 $ArticleTitleColor: #ba3434;
 
+// Tales Listing Page
+$homeMenuItemBgColor: hsl(243, 54%, 19%);
+$homeMenuItemBgColorHover: hsl(243, 54%, 29%);
+
 // Story Page
-$storyPageHeaderBgColor: #381220;
+$storyPageHeaderBgColor: hsl(338, 51%, 15%);
+$storyPageHeaderBgColorHover: hsl(338, 51%, 35%);
+$literatureNavHeaderTitleColor: hsl(338, 51%, 35%);
+$literatureNavHeaderTitleColorHover: hsl(243, 54%, 48%);
+
+
+$navigationHeightOffset: 80px;
+
+:export {
+	storyPageHeaderBgColorHover: $storyPageHeaderBgColorHover;
+}

@@ -38,7 +38,7 @@ Literature was formerly referred to as a "tale" _[deprecated]_.
 With the necessity of using `react state`, as well as the `framer-motion` animation library, `use client` will most likely be required. [_Redundant? Remove? Any possible exceptions?_]
 
 ### IMPORTS
-Any required imports including custom components as well as other installed libraries.
+Any required imports including custom components and other installed libraries.
 
 ### TYPES
 **`TStanza`**

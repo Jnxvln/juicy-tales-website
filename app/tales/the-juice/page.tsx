@@ -1,241 +1,118 @@
 "use client";
 
-import Link from 'next/link'
-import { useState, useEffect, useRef } from 'react'
-import { motion, useAnimate, useInView } from 'framer-motion'
+import { TLiterature } from '@/app/Types';
+import { useState, useEffect } from 'react'
+import { AnimationScope, motion, useAnimate } from 'framer-motion'
 import Typewriter, { TypewriterClass } from 'typewriter-effect'
 import { useGlobalAudioPlayer } from 'react-use-audio-player';
 import EndCard from '@/app/components/EndCard/EndCard';
-import BouncingDownArrow from '@/app/components/BouncingDownArrow/BouncingDownArrow';
 import VerticalSpacer from '@/app/components/VerticalSpacer/VerticalSpacer';
-import { Titan_One } from "next/font/google"
+import LiteratureNavigation from '@/app/components/literature/LiteratureNavigation/LiteratureNavigation';
+import LiteratureHeader from '@/app/components/literature/LiteratureHeader/LiteratureHeader';
+import CustomBouncingDownArrow from '@/app/components/CustomBouncingDownArrow/CustomBouncingDownArrow';
+import LiteratureBeginButton from '@/app/components/literature/LiteratureBeginButton/LiteratureBeginButton';
+import LiteratureVolumeNotice from '@/app/components/literature/LiteratureVolumeNotice/LiteratureVolumeNotice';
+import { 
+	initialOptions, 
+	whileInViewOptions, 
+	transitionOptions, 
+	defaultWrapperAnimationProperties, 
+	defaultWrapperTransitionProperties, 
+	defaultStanzaAnimationProperties, 
+	defaultStanzaTransitionProperties 
+} from '@/app/data/DefaultProperties'
+import colors from './page.module.scss'
+import stanzas from './the-juice-stanzas.json'
 import styles from './page.module.scss'
-import BackArrow from '@/app/components/BackArrow/BackArrow';
+import LiteratureStanza from '@/app/components/literature/LiteratureStanza/LiteratureStanza';
 
-
-// #region TYPES
-export type TStanza = {
-	id: number;
-	part1: string;
-	part2: string | undefined | null;
-}
-
-export type TLiterature = {
-	title: string;
-	type: "poem" | "prose" | "story" | "other";
-	stanzas: TStanza[];
-}
-// #endregion
-
-// #region DEFAULT OPTIONS
+// #region DEFAULT OPTIONS =======================================================================================
 const typewriterOptions = {
 	wrapperClassName: styles.typewriterWrapper,
 	cursorClassName: styles.typewriterCursor
 }
-
-const initialOptions = {
-	opacity: 0
-}
-
-const whileInViewOptions = {
-	opacity: 1
-}
-
-const transitionOptions = {
-	duration: 2
-}
-// #endregion
-
-const TitanOne = Titan_One({
-	weight: "400",
-	subsets: ['latin'],
-	display: 'swap'
-})
+// #endregion ===================================================================================================
 
 export default function TheJuiceProse () {
 
+	// #region VARIABLES =========================================================================================
 	const audioPlayer = useGlobalAudioPlayer();
 	const [begin, setBegin] = useState<boolean>(false)
 
 	const literature: TLiterature = {
 		title: "The Juice",
 		type: "prose",
-		stanzas: [
-			{
-				id: 0,
-				part1: "The weight of responsibility that falls on the shoulders of the only child, who constantly aids their family members in times of need, is a burden carried with a heavy heart.",
-				part2: null
-			},
-			{
-				id: 1,
-				part1: "Day in and day out, they are there, tirelessly tending to the needs of their loved ones, sacrificing personal time and relationships to ensure their comfort and well-being.",
-				part2: null
-			},
-			{
-				id: 2,
-				part1: "The individual who is always present, who never shies away from difficult tasks, providing unwavering support through it all.",
-				part2: null,
-			},
-			{
-				id: 3,
-				part1: "Yet, despite their dedication and selfless commitment, the love they yearn to receive in return seems to be elusive.",
-				part2: null
-			},
-			{
-				id: 4,
-				part1: "It can be a lonely journey, paved with exhaustion, frustration, and a lingering sense of isolation.",
-				part2:  null
-			},
-			{
-				id: 5,
-				part1: "As they pour their heart and soul into caring for their family members, they can't help but wonder if anyone truly sees the sacrifices they make,",
-				part2: "if anyone truly understands the toll it takes on them."
-			},
-			{
-				id: 6,
-				part1: "Longing for a moment of respite, a chance to tend to their own needs, the demands of others always outweigh their own...",
-				part2: null
-			},
-			{
-				id: 7,
-				part1: "...giving their all without expecting much in return, hoping that someday, someone will recognize the depth of their devotion and the magnitude of their sacrifice.",
-				part2: null
-			},
-			{
-				id: 8,
-				part1: "But until that day comes, they will continue to stand strong, to persevere through weariness and loneliness...",
-				part2: null
-			},
-			{
-				id: 9,
-				part1: "...knowing that their love and dedication are the greatest gifts they can offer to those they hold dear, even if it goes unnoticed and unappreciated.",
-				part2: null
-			}
-		]
+		stanzas
 	}
 
-	// #region STANZA STATES ===============================================================================
+		// #region STANZAS STATE ---------------------------------------------------------
+		const [stanza0TW_P1, setStanza0TW_P1] = useState<TypewriterClass>()
+		const [stanza1TW_P1, setStanza1TW_P1] = useState<TypewriterClass>()
+		const [stanza2TW_P1, setStanza2TW_P1] = useState<TypewriterClass>()
+		const [stanza3TW_P1, setStanza3TW_P1] = useState<TypewriterClass>()
+		const [stanza4TW_P1, setStanza4TW_P1] = useState<TypewriterClass>()
+		const [stanza5TW_P1, setStanza5TW_P1] = useState<TypewriterClass>()
+		const [stanza5TW_P2, setStanza5TW_P2] = useState<TypewriterClass>()
+		const [stanza6TW_P1, setStanza6TW_P1] = useState<TypewriterClass>()
+		const [stanza7TW_P1, setStanza7TW_P1] = useState<TypewriterClass>()
+		const [stanza8TW_P1, setStanza8TW_P1] = useState<TypewriterClass>()
+		const [stanza9TW_P1, setStanza9TW_P1] = useState<TypewriterClass>()
+		// #endregion --------------------------------------------------------------------
 	
-	// Stanza 0 State
-	const stanza0WrapperRef = useRef(null)
-	// const stanza0_InView = useInView({ root: stanza0WrapperRef })
-	const stanza0_InView = useInView(stanza0WrapperRef)
-	const [stanza0TW_P1, setStanza0TW_P1] = useState<TypewriterClass>()
+		// #region ANIMATION DEFINITIONS -------------------------------------------------
+		const [storyContainerScope, storyContainerAnimate] = useAnimate()
+		const [headerScope, headerAnimate] = useAnimate()
+		const [headerTitleScope, headerTitleAnimate] = useAnimate()
+		const [volumeNoticeScope, volumeNoticeAnimate] = useAnimate()
+		const [beginButtonScope, beginButtonAnimate] = useAnimate()
 
-	// Stanza 1 State
-	const stanza1WrapperRef = useRef(null)
-	// const stanza1_InView = useInView({ root: stanza1WrapperRef })
-	const stanza1_InView = useInView(stanza1WrapperRef)
-	const [stanza1TW_P1, setStanza1TW_P1] = useState<TypewriterClass>()
+		// Stanza 0 Animations
+		const [stanza0WrapperScope, stanza0WrapperAnimate] = useAnimate()
+		const [stanza0Scope, stanza0Animate] = useAnimate()
 
-	// Stanza 2 State
-	const stanza2WrapperRef = useRef(null)
-	// const stanza2_InView = useInView({ root: stanza2WrapperRef })
-	const stanza2_InView = useInView(stanza2WrapperRef)
-	const [stanza2TW_P1, setStanza2TW_P1] = useState<TypewriterClass>()
+		// Stanza 1 Animations
+		const [stanza1WrapperScope, stanza1WrapperAnimate] = useAnimate()
+		const [stanza1Scope, stanza1Animate] = useAnimate()
 
-	// Stanza 3 State
-	const stanza3WrapperRef = useRef(null)
-	// const stanza3_InView = useInView({ root: stanza3WrapperRef })
-	const stanza3_InView = useInView(stanza3WrapperRef)
-	const [stanza3TW_P1, setStanza3TW_P1] = useState<TypewriterClass>()
+		// Stanza 2 Animations
+		const [stanza2WrapperScope, stanza2WrapperAnimate] = useAnimate()
+		const [stanza2Scope, stanza2Animate] = useAnimate()
 
-	// Stanza 4 State
-	const stanza4WrapperRef = useRef(null)
-	// const stanza4_InView = useInView({ root: stanza4WrapperRef })
-	const stanza4_InView = useInView(stanza4WrapperRef)
-	const [stanza4TW_P1, setStanza4TW_P1] = useState<TypewriterClass>()
+		// Stanza 3 Animations
+		const [stanza3WrapperScope, stanza3WrapperAnimate] = useAnimate()
+		const [stanza3Scope, stanza3Animate] = useAnimate()
 
-	// Stanza 5 State (two)
-	const stanza5WrapperRef = useRef(null)
-	// const stanza5_InView = useInView({ root: stanza5WrapperRef })
-	const stanza5_InView = useInView(stanza5WrapperRef)
-	const [stanza5TW_P1, setStanza5TW_P1] = useState<TypewriterClass>()
-	const [stanza5TW_P2, setStanza5TW_P2] = useState<TypewriterClass>()
+		// Stanza 4 Animations
+		const [stanza4WrapperScope, stanza4WrapperAnimate] = useAnimate()
+		const [stanza4Scope, stanza4Animate] = useAnimate()
 
-	// Stanza 6 State
-	const stanza6WrapperRef = useRef(null)
-	// const stanza6_InView = useInView({ root: stanza6WrapperRef })
-	const stanza6_InView = useInView(stanza6WrapperRef)
-	const [stanza6TW_P1, setStanza6TW_P1] = useState<TypewriterClass>()
+		// Stanza 5 Animations
+		const [stanza5WrapperScope, stanza5WrapperAnimate] = useAnimate()
+		const [stanza5Scope, stanza5Animate] = useAnimate()
 
-	// Stanza 7 State
-	const stanza7WrapperRef = useRef(null)
-	// const stanza7_InView = useInView({ root: stanza7WrapperRef })
-	const stanza7_InView = useInView(stanza7WrapperRef)
-	const [stanza7TW_P1, setStanza7TW_P1] = useState<TypewriterClass>()
+		// Stanza 6 Animations
+		const [stanza6WrapperScope, stanza6WrapperAnimate] = useAnimate()
+		const [stanza6Scope, stanza6Animate] = useAnimate()
 
-	// Stanza 8 State
-	const stanza8WrapperRef = useRef(null)
-	// const stanza8_InView = useInView({ root: stanza8WrapperRef })
-	const stanza8_InView = useInView(stanza8WrapperRef)
-	const [stanza8TW_P1, setStanza8TW_P1] = useState<TypewriterClass>()
+		// Stanza 7 Animations
+		const [stanza7WrapperScope, stanza7WrapperAnimate] = useAnimate()
+		const [stanza7Scope, stanza7Animate] = useAnimate()
 
-	// Stanza 9 State
-	const stanza9WrapperRef = useRef(null)
-	// const stanza9_InView = useInView({ root: stanza6WrapperRef })
-	const stanza9_InView = useInView(stanza6WrapperRef)
-	const [stanza9TW_P1, setStanza9TW_P1] = useState<TypewriterClass>()
+		// Stanza 8 Animations
+		const [stanza8WrapperScope, stanza8WrapperAnimate] = useAnimate()
+		const [stanza8Scope, stanza8Animate] = useAnimate()
 
-	// #endregion
+		// Stanza 9 Animations
+		const [stanza9WrapperScope, stanza9WrapperAnimate] = useAnimate()
+		const [stanza9Scope, stanza9Animate] = useAnimate()
+		// #endregion ---------------------------------------------------------------------
 
-	// #region ANIMATION DEFINITIONS ============================================================================
-	
-	const [storyContainerScope, storyContainerAnimate] = useAnimate()
-	const [headerScope, headerAnimate] = useAnimate()
-	const [headerTitleScope, headerTitleAnimate] = useAnimate()
-	const [volumeNoticeScope, volumeNoticeAnimate] = useAnimate()
-	const [beginButtonScope, beginButtonAnimate] = useAnimate()
+	// #endregion ===================================================================================================
 
-	// Stanza 0 Animations
-	const [stanza0WrapperScope, stanza0WrapperAnimate] = useAnimate()
-	const [stanza0Scope, stanza0Animate] = useAnimate()
-
-	// Stanza 1 Animations
-	const [stanza1WrapperScope, stanza1WrapperAnimate] = useAnimate()
-	const [stanza1Scope, stanza1Animate] = useAnimate()
-
-	// Stanza 2 Animations
-	const [stanza2WrapperScope, stanza2WrapperAnimate] = useAnimate()
-	const [stanza2Scope, stanza2Animate] = useAnimate()
-
-	// Stanza 3 Animations
-	const [stanza3WrapperScope, stanza3WrapperAnimate] = useAnimate()
-	const [stanza3Scope, stanza3Animate] = useAnimate()
-
-	// Stanza 4 Animations
-	const [stanza4WrapperScope, stanza4WrapperAnimate] = useAnimate()
-	const [stanza4Scope, stanza4Animate] = useAnimate()
-
-	// Stanza 5 Animations
-	const [stanza5WrapperScope, stanza5WrapperAnimate] = useAnimate()
-	const [stanza5Scope, stanza5Animate] = useAnimate()
-
-	// Stanza 6 Animations
-	const [stanza6WrapperScope, stanza6WrapperAnimate] = useAnimate()
-	const [stanza6Scope, stanza6Animate] = useAnimate()
-
-	// Stanza 7 Animations
-	const [stanza7WrapperScope, stanza7WrapperAnimate] = useAnimate()
-	const [stanza7Scope, stanza7Animate] = useAnimate()
-
-	// Stanza 8 Animations
-	const [stanza8WrapperScope, stanza8WrapperAnimate] = useAnimate()
-	const [stanza8Scope, stanza8Animate] = useAnimate()
-
-	// Stanza 9 Animations
-	const [stanza9WrapperScope, stanza9WrapperAnimate] = useAnimate()
-	const [stanza9Scope, stanza9Animate] = useAnimate()
-
-	// Stanza 10 Animations
-	const [stanza10WrapperScope, stanza10WrapperAnimate] = useAnimate()
-	const [stanza10Scope, stanza10Animate] = useAnimate()
-	// #endregion
-
-	// #region ACTIONS =====================================================================================
+	// #region ACTIONS ==============================================================================================
 	const onBegin = async() => {
 
-		setBegin(true)
+		// setBegin(true)
 
 		// Begin music
 		setTimeout(() => {
@@ -246,23 +123,21 @@ export default function TheJuiceProse () {
 		beginButtonAnimate(beginButtonScope.current, { opacity: 0 }, { duration: 3 })
 		headerAnimate(headerScope.current, { opacity: 0 }, { duration: 3 })
 		volumeNoticeAnimate(volumeNoticeScope.current, { opacity: 0 }, { duration: 3 })
-		await headerTitleAnimate(headerTitleScope.current, { opacity: 1, color: '#15E6AE' }, { duration: 3, delay: 2 })
+		await headerTitleAnimate(headerTitleScope.current, { opacity: 1, color: colors.storyPageHeaderBgColorHover }, { duration: 3, delay: 2 })
 
+		// Remove header from DOM flow
 		const headerElm = document.getElementById('header')
 		if (headerElm) {
 			headerElm.style.display = 'none';
-		}	
+		}
 
-		// await storyContainerAnimate(storyContainerScope.current, { y: -180 }, { duration: 1 })
-		await stanza0WrapperAnimate(stanza0WrapperScope.current, { opacity: 1 }, { duration: 1.5 })
-		await stanza0Animate(stanza0Scope.current, { opacity: 1 }, { duration: 1 })
+		setBegin(true)
+
+		// await stanza0WrapperAnimate(stanza0WrapperScope.current, { opacity: 1 }, { duration: 1.5 })
+		// await stanza0Animate(stanza0Scope.current, { opacity: 1 }, { duration: 1 })
 		
-		console.log('Starting STANZA 0 animation...')
-		stanza0TW_P1?.start()
-		
-		// setTimeout(() => {
-		// 	stanza1TW_P2?.start()
-		// }, 12000)
+		// console.log('Starting STANZA 0 animation...')
+		// stanza0TW_P1?.start()
 	}
 
 	const onRefresh = () => {
@@ -270,164 +145,73 @@ export default function TheJuiceProse () {
 	}
 	// #endregion
 
-	// #region START ANIMATIONS ===============================================================================
+	// #region START ANIMATIONS =====================================================================================
+	// const startAnimation = async(wrapperAnimate: any, wrapperScope: AnimationScope<any>, wrapperAnimationProperties: any, wrapperTransitionProperties: any, stanzaAnimate: any, stanzaScope: AnimationScope<any>, stanzaAnimationProperties: any, stanzaTransitionProperties: any, typeWriter: TypewriterClass) => {
+	// 	wrapperAnimate(wrapperScope.current, wrapperAnimationProperties, wrapperTransitionProperties)
+	// 	await stanzaAnimate(stanzaScope.current, stanzaAnimationProperties, stanzaTransitionProperties)
+	// 	typeWriter?.start()
+	// }
 
-	// Stanza 0 Start Animation
-	const startStanza0Animation = async() => {
-		console.log('Starting STANZA 0 animation...')
-		await stanza0WrapperAnimate(stanza0WrapperScope.current, { opacity: 1 }, { duration: 3 })
-		await stanza0Animate(stanza0Scope.current, { opacity: 1 }, { duration: 1 })
-		stanza0TW_P1?.start()
-	}
-
-	// Stanza 1 Start Animation
-	const startStanza1Animation = async() => {
-		console.log('Starting STANZA 1 animation...')
-		stanza1WrapperAnimate(stanza1WrapperScope.current, { opacity: 1 }, { duration: 3 })
-		await stanza1Animate(stanza1Scope.current, { opacity: 1 }, { duration: 1, delay: 1 })
-		stanza1TW_P1?.start()
-	}
-
-	// Stanza 2 Start Animation
-	const startStanza2Animation = async() => {
-		console.log('Starting STANZA 2 animation...')
-		stanza2WrapperAnimate(stanza2WrapperScope.current, { opacity: 1 }, { duration: 4.5 })
-		await stanza2Animate(stanza2Scope.current, { opacity: 1 }, { duration: 1, delay: 1  })
-		stanza2TW_P1?.start()
-		// setTimeout(() => {
-		// 	stanza2TW_P2?.start()
-		// }, 3000)
-	}
-
-	// Stanza 3 Start Animation
-	const startStanza3Animation = async() => {
-		console.log('Starting STANZA 3 animation...')
-		stanza3WrapperAnimate(stanza3WrapperScope.current, { opacity: 1 }, { duration: 4.5 })
-		await stanza3Animate(stanza3Scope.current, { opacity: 1 }, { duration: 1, delay: 1  })
-		stanza3TW_P1?.start()
-		// setTimeout(() => {
-		// 	stanza3TW_P2?.start()
-		// }, 3000)
-	}
-
-	// Stanza 4 Start Animation
-	const startStanza4Animation = async() => {
-		console.log('Starting STANZA 4 animation...')
-		stanza4WrapperAnimate(stanza4WrapperScope.current, { opacity: 1 }, { duration: 4.5 })
-		await stanza4Animate(stanza4Scope.current, { opacity: 1 }, { duration: 1, delay: 1  })
-		stanza4TW_P1?.start()
-		// setTimeout(() => {
-		// 	stanza4TW_P2?.start()
-		// }, 3000)
-	}
-
-	// Stanza 5 Start Animation
-	const startStanza5Animation = async() => {
-		console.log('Starting STANZA 5 animation...')
-		stanza5WrapperAnimate(stanza5WrapperScope.current, { opacity: 1 }, { duration: 4.5 })
-		await stanza5Animate(stanza5Scope.current, { opacity: 1 }, { duration: 1, delay: 1  })
-		stanza5TW_P1?.start()
-		setTimeout(() => {
-			stanza5TW_P2?.start()
-		}, 8000)
-	}
-
-	// Stanza 6 Start Animation
-	const startStanza6Animation = async() => {
-		console.log('Starting STANZA 6 animation...')
-		stanza6WrapperAnimate(stanza6WrapperScope.current, { opacity: 1 }, { duration: 4.5 })
-		await stanza6Animate(stanza6Scope.current, { opacity: 1 }, { duration: 1, delay: 1  })
-		stanza6TW_P1?.start()
-	}
-
-	// Stanza 7 Start Animation
-	const startStanza7Animation = async() => {
-		console.log('Starting STANZA 7 animation...')
-		stanza7WrapperAnimate(stanza7WrapperScope.current, { opacity: 1 }, { duration: 4.5 })
-		await stanza7Animate(stanza7Scope.current, { opacity: 1 }, { duration: 1, delay: 1  })
-		stanza7TW_P1?.start()
-		// setTimeout(() => {
-		// 	stanza7TW_P2?.start()
-		// }, 3000)
-	}
-
-	// Stanza 8 Start Animation
-	const startStanza8Animation = async() => {
-		console.log('Starting STANZA 8 animation...')
-		stanza8WrapperAnimate(stanza8WrapperScope.current, { opacity: 1 }, { duration: 4.5 })
-		await stanza8Animate(stanza8Scope.current, { opacity: 1 }, { duration: 1, delay: 1  })
-		stanza8TW_P1?.start()
-		// setTimeout(() => {
-		// 	stanza8TW_P2?.start()
-		// }, 3000)
-	}
-
-	// Stanza 9 Start Animation
-	const startStanza9Animation = async() => {
-		console.log('Starting STANZA 9 animation...')
-		stanza9WrapperAnimate(stanza9WrapperScope.current, { opacity: 1 }, { duration: 4.5 })
-		await stanza9Animate(stanza9Scope.current, { opacity: 1 }, { duration: 1, delay: 1  })
-		stanza9TW_P1?.start()
-		// setTimeout(() => {
-		// 	stanza9TW_P2?.start()
-		// }, 3000)
-	}
+	// Stanza 5 Start Animation (CUSTOM, couplet)
+	// const startStanza5Animation = async() => {
+	// 	stanza5WrapperAnimate(stanza5WrapperScope.current, defaultWrapperAnimationProperties, defaultWrapperTransitionProperties)
+	// 	await stanza5Animate(stanza5Scope.current, defaultStanzaAnimationProperties, defaultStanzaTransitionProperties)
+	// 	stanza5TW_P1?.start()
+	// 	setTimeout(() => {
+	// 		stanza5TW_P2?.start()
+	// 	}, 8000)
+	// }
 	// #endregion ==============================================================================================
 
-	// #region STOP ANIMATIONS =================================================================================
+	// #region STOP ANIMATIONS ======================================================================================
 	
 	// Stanza 1 STOP Animation
+	const stopStanza0Animation = () => {
+		stanza0TW_P1?.stop()
+	}
+	
 	const stopStanza1Animation = () => {
-		console.log('Stopping STANZA 1 animation.')
 		stanza1TW_P1?.stop()
 	}
 
 	// Stanza 2 STOP Animation
 	const stopStanza2Animation = () => {
-		console.log('Stopping STANZA 2 animation.')
 		stanza2TW_P1?.stop()
 	}
 
 	// Stanza 3 STOP Animation
 	const stopStanza3Animation = () => {
-		console.log('Stopping STANZA 3 animation.')
 		stanza3TW_P1?.stop()
 	}
 
 	// Stanza 4 STOP Animation
 	const stopStanza4Animation = () => {
-		console.log('Stopping STANZA 4 animation.')
 		stanza4TW_P1?.stop()
 	}
 
 	// Stanza 5 STOP Animation (two)
 	const stopStanza5Animation = () => {
-		console.log('Stopping STANZA 5 animation.')
 		stanza5TW_P1?.stop()
 		stanza5TW_P2?.stop()
 	}
 
 	// Stanza 6 STOP Animation
 	const stopStanza6Animation = () => {
-		console.log('Stopping STANZA 6 animation.')
 		stanza6TW_P1?.stop()
 	}
 
 	// Stanza 7 STOP Animation
 	const stopStanza7Animation = () => {
-		console.log('Stopping STANZA 7 animation.')
 		stanza7TW_P1?.stop()
 	}
 
 	// Stanza 8 STOP Animation
 	const stopStanza8Animation = () => {
-		console.log('Stopping STANZA 8 animation.')
 		stanza8TW_P1?.stop()
 	}
 
 	// Stanza 9 STOP Animation
 	const stopStanza9Animation = () => {
-		console.log('Stopping STANZA 9 animation.')
 		stanza9TW_P1?.stop()
 	}
 	// #endregion ==============================================================================================
@@ -438,48 +222,27 @@ export default function TheJuiceProse () {
 			autoplay: false,
 		})
 	}, [])
-
-	// `Begin` trigger
-	useEffect(() => {
-		console.log('Beginning the Literature...')
-	}, [begin])
 	// #endregion
-
 
 	return (
 		<div className={styles.pageContainer}>
 
 			{/* NAVIGATION */}
-			<div className={styles.navigation}>
-				<Link href="/tales" className={styles.linkToTales}><BackArrow/>Tales</Link>
-				<motion.div onClick={onRefresh} className={`${styles.navStoryTitle} ${TitanOne.className}`} ref={headerTitleScope} initial={{ opacity: 0 }}>{literature.title}</motion.div>
-			</div>
+			<LiteratureNavigation scope={headerTitleScope} literatureTitle={literature.title} />
 
 			{/* HEADER */}
-			<motion.header id="header" ref={headerScope} className={styles.header}>
-				<h1 className={`${styles.title} ${TitanOne.className}`}>{literature.title}</h1>
-			</motion.header>
+			<LiteratureHeader scope={headerScope} literatureTitle={literature.title} />
 
 			{/* STORY SECTION */}
 			<motion.section ref={storyContainerScope} className={styles.storyContainer}>
 				<div>
-
-					<motion.div ref={volumeNoticeScope} className={styles.volumeUpNotice}>
-						Turn volume up for best experience
-					</motion.div>
-
-					{/* Begin Button */}
-					<motion.div ref={beginButtonScope} className={styles.beginButtonWrapper} initial={{ opacity: 1 }}>
-						<button disabled={begin} type="button" onClick={onBegin} className="bg-rose-800 hover:bg-rose-900 px-6 py-3 rounded-lg font-bold transition-colors duration-100">Begin</button>
-					</motion.div>
-
-
-
+					<LiteratureVolumeNotice scope={volumeNoticeScope} />
+					<LiteratureBeginButton disabled={begin} scope={beginButtonScope} onBegin={onBegin} />
 					<br/>
 					<br/>
 
 					{/* STANZA #0 "the weight of responsibility..."==================================================================================================== */}
-					<div className={styles.newStanzaWrapper}>
+					{/* <div className={styles.newStanzaWrapper}>
 						<article ref={stanza0Scope} className={`${styles.stanza} ${styles.stanza0}`}>
 							{ literature?.stanzas[0]?.part1 && <Typewriter
 								onInit={(typewriter: TypewriterClass) => {
@@ -495,162 +258,87 @@ export default function TheJuiceProse () {
 						</article>
 
 						{ begin && 
-							<motion.div
-								initial={initialOptions}
-								whileInView={whileInViewOptions}
-								transition={{
-									duration: 2,
-									delay: 18
-								}}
-							>
-								<BouncingDownArrow />
-							</motion.div>
+							<CustomBouncingDownArrow initial={initialOptions} whileInView={whileInViewOptions} transition={{
+								duration: 2,
+								delay: 18
+							}} />
 						}
 
-						<div 
-							ref={stanza0WrapperScope} 
-							className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper0}`}
-						>
-						</div>
-					</div>
+						<div ref={stanza0WrapperScope} className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper0}`}></div>
+					</div> */}
 
+					<LiteratureStanza
+						stanzaNumber={0}
+						literature={literature}
+						isEnabled={begin}
+						stopAnimation={stopStanza0Animation}
+						initialOptions
+						whileInViewOptions
+						transitionOptions
+						typeWriterOptions={typewriterOptions}
+						typeWriterInitialPauseInSeconds={14}
+						useContinueArrow={true}
+						continueArrowTransitionOptions={{ duration: 2, delay: 14 }}
+						useEndSpacer={true}
+					/>
 
 					{ begin && 
 						<div>
 							<VerticalSpacer />
 							
 							{/* STANZA #1 "Day in and day out..." ==================================================================================================== */}
-							<motion.div 
-								className={styles.newStanzaWrapper}
-								initial={initialOptions}
-								whileInView={whileInViewOptions}
-								transition={transitionOptions}
-								onViewportEnter={() => startStanza1Animation()}
-								onViewportLeave={() => stopStanza1Animation()}
-							>
-								<article ref={stanza1Scope} className={`${styles.stanza} ${styles.stanza0}`}>
-									{ literature?.stanzas[1]?.part1 && <Typewriter
-										onInit={(typewriter: TypewriterClass) => {
-											if (!literature?.stanzas[1]?.part1) return;
-
-											setStanza1TW_P1(typewriter)
-											typewriter.changeDelay(45)
-											typewriter.typeString(literature.stanzas[1].part1)
-										}}
-										options={typewriterOptions}
-									/> }
-								</article>
-
-								<motion.div
-									initial={initialOptions}
-									whileInView={whileInViewOptions}
-									transition={{
-										duration: 2,
-										delay: 12
-									}}
-								>
-									<BouncingDownArrow />
-								</motion.div>
-
-								<div 
-									ref={stanza1WrapperScope} 
-									className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper1}`}>
-								</div>
-							</motion.div>
-
-							<VerticalSpacer />
+							<LiteratureStanza
+								stanzaNumber={1}
+								literature={literature}
+								isEnabled={begin}
+								stopAnimation={stopStanza1Animation}
+								initialOptions
+								whileInViewOptions
+								transitionOptions
+								typeWriterOptions={typewriterOptions}
+								useContinueArrow={true}
+								continueArrowTransitionOptions={{ duration: 2, delay: 12 }}
+								useEndSpacer={true}
+							/>
 
 							{/* STANZA #2 "The individual who is always present..."===================================================================================== */}
-							<motion.div 
-								className={styles.newStanzaWrapper}
-								initial={initialOptions}
-								whileInView={whileInViewOptions}
-								transition={transitionOptions}
-								onViewportEnter={() => startStanza2Animation()}
-								onViewportLeave={() => stopStanza2Animation()}
-							>
-								<article ref={stanza2Scope} className={`${styles.stanza} ${styles.stanza2}`}>
-									{ literature?.stanzas[2]?.part1 && <Typewriter
-										onInit={(typewriter: TypewriterClass) => {
-											if (!literature?.stanzas[2]?.part1) return;
-
-											setStanza2TW_P1(typewriter)
-											typewriter.changeDelay(45)
-											typewriter.typeString(literature.stanzas[2].part1)
-										}}
-										options={typewriterOptions}
-									/> }
-								</article>
-
-								<motion.div
-									initial={initialOptions}
-									whileInView={whileInViewOptions}
-									transition={{
-										duration: 2,
-										delay: 9
-									}}
-								>
-									<BouncingDownArrow />
-								</motion.div>
-
-								<div 
-									ref={stanza2WrapperScope} 
-									className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper2}`}>
-								</div>
-							</motion.div>
-
-							<VerticalSpacer />
+							<LiteratureStanza
+								stanzaNumber={2}
+								literature={literature}
+								isEnabled={begin}
+								stopAnimation={stopStanza2Animation}
+								initialOptions
+								whileInViewOptions
+								transitionOptions
+								typeWriterOptions={typewriterOptions}
+								useContinueArrow={true}
+								continueArrowTransitionOptions={{ duration: 2, delay: 9 }}
+								useEndSpacer={true}
+							/>
 
 							{/* STANZA #3 "Yet, despite their dedication..."===================================================================================== */}
-
-							<motion.div 
-								className={styles.newStanzaWrapper}
-								initial={initialOptions}
-								whileInView={whileInViewOptions}
-								transition={transitionOptions}
-								onViewportEnter={() => startStanza3Animation()}
-								onViewportLeave={() => stopStanza3Animation()}
-							>
-								<article ref={stanza3Scope} className={`${styles.stanza} ${styles.stanza3}`}>
-									{ literature?.stanzas[3]?.part1 && <Typewriter
-										onInit={(typewriter: TypewriterClass) => {
-											if (!literature?.stanzas[3]?.part1) return;
-
-											setStanza3TW_P1(typewriter)
-											typewriter.changeDelay(45)
-											typewriter.typeString(literature.stanzas[3].part1)
-										}}
-										options={typewriterOptions}
-									/> }
-								</article>
-
-								<motion.div
-									initial={initialOptions}
-									whileInView={whileInViewOptions}
-									transition={{
-										duration: 2,
-										delay: 9
-									}}
-								>
-									<BouncingDownArrow />
-								</motion.div>
-
-								<div 
-									ref={stanza3WrapperScope} 
-									className={`${styles.stanzaImageWrapper} ${styles.stanzaImageWrapper3}`}>
-								</div>
-							</motion.div>
-
-							<VerticalSpacer />
+							<LiteratureStanza
+								stanzaNumber={3}
+								literature={literature}
+								isEnabled={begin}
+								stopAnimation={stopStanza3Animation}
+								initialOptions
+								whileInViewOptions
+								transitionOptions
+								typeWriterOptions={typewriterOptions}
+								useContinueArrow={true}
+								continueArrowTransitionOptions={{ duration: 2, delay: 9 }}
+								useEndSpacer={true}
+							/>
 
 							{/* STANZA #4 "It can be a lonely journey..."===================================================================================== */}
 
-							<motion.div 
+							{/* <motion.div 
 								className={styles.newStanzaWrapper}
 								initial={initialOptions}
 								whileInView={whileInViewOptions}
 								transition={transitionOptions}
-								onViewportEnter={() => startStanza4Animation()}
+								onViewportEnter={() => startAnimation(stanza4WrapperAnimate, stanza4WrapperScope, defaultWrapperAnimationProperties, defaultWrapperTransitionProperties, stanza4Animate, stanza4Scope, defaultStanzaAnimationProperties, defaultStanzaTransitionProperties, stanza4TW_P1 ? stanza4TW_P1 : new TypewriterClass("", {}))}
 								onViewportLeave={() => stopStanza4Animation()}
 							>
 								<article ref={stanza4Scope} className={`${styles.stanza} ${styles.stanza4}`}>
@@ -666,16 +354,10 @@ export default function TheJuiceProse () {
 									/> }
 								</article>
 
-								<motion.div
-									initial={initialOptions}
-									whileInView={whileInViewOptions}
-									transition={{
-										duration: 2,
-										delay: 8
-									}}
-								>
-									<BouncingDownArrow />
-								</motion.div>
+								<CustomBouncingDownArrow initial={initialOptions} whileInView={whileInViewOptions} transition={{
+									duration: 2,
+									delay: 8
+								}} />
 
 								<div 
 									ref={stanza4WrapperScope} 
@@ -683,11 +365,25 @@ export default function TheJuiceProse () {
 								</div>
 							</motion.div>
 
-							<VerticalSpacer />
+							<VerticalSpacer /> */}
+
+							<LiteratureStanza
+								stanzaNumber={4}
+								literature={literature}
+								isEnabled={begin}
+								stopAnimation={stopStanza4Animation}
+								initialOptions
+								whileInViewOptions
+								transitionOptions
+								typeWriterOptions={typewriterOptions}
+								useContinueArrow={true}
+								continueArrowTransitionOptions={{ duration: 2, delay: 8 }}
+								useEndSpacer={true}
+							/>
 
 							{/* STANZA #5 "As they pour their heart..."===================================================================================== */}
 
-							<motion.div 
+							{/* <motion.div 
 								className={styles.newStanzaWrapper}
 								initial={initialOptions}
 								whileInView={whileInViewOptions}
@@ -697,7 +393,6 @@ export default function TheJuiceProse () {
 							>
 								<article ref={stanza5Scope} className={`${styles.stanza} ${styles.stanza5}`}>
 
-									{/* STANZA 5 : PART 1 */}
 									{ literature?.stanzas[5]?.part1 && <Typewriter
 										onInit={(typewriter: TypewriterClass) => {
 											if (!literature?.stanzas[5]?.part1) return;
@@ -711,7 +406,6 @@ export default function TheJuiceProse () {
 
 									<div className="my-3"></div>
 
-									{/* STANZA 5 : PART 2 */}
 									{ literature?.stanzas[5]?.part2 && <Typewriter
 										onInit={(typewriter: TypewriterClass) => {
 											if (!literature?.stanzas[5]?.part2) return;
@@ -724,16 +418,10 @@ export default function TheJuiceProse () {
 									/> }
 								</article>
 
-								<motion.div
-									initial={initialOptions}
-									whileInView={whileInViewOptions}
-									transition={{
-										duration: 2,
-										delay: 18
-									}}
-								>
-									<BouncingDownArrow />
-								</motion.div>
+								<CustomBouncingDownArrow initial={initialOptions} whileInView={whileInViewOptions} transition={{
+									duration: 2,
+									delay: 18
+								}} />
 
 								<div 
 									ref={stanza5WrapperScope} 
@@ -741,15 +429,29 @@ export default function TheJuiceProse () {
 								</div>
 							</motion.div>
 
-							<VerticalSpacer />
+							<VerticalSpacer /> */}
+
+							<LiteratureStanza
+								stanzaNumber={5}
+								literature={literature}
+								isEnabled={begin}
+								stopAnimation={stopStanza5Animation}
+								initialOptions
+								whileInViewOptions
+								transitionOptions
+								typeWriterOptions={typewriterOptions}
+								useContinueArrow={true}
+								continueArrowTransitionOptions={{ duration: 2, delay: 18 }}
+								useEndSpacer={true}
+							/>
 
 							{/* STANZA #6 "Longing for a moment of respite..."===================================================================================== */}
-							<motion.div 
+							{/* <motion.div 
 								className={styles.newStanzaWrapper}
 								initial={initialOptions}
 								whileInView={whileInViewOptions}
 								transition={transitionOptions}
-								onViewportEnter={() => startStanza6Animation()}
+								onViewportEnter={() => startAnimation(stanza6WrapperAnimate, stanza6WrapperScope, defaultWrapperAnimationProperties, defaultWrapperTransitionProperties, stanza6Animate, stanza6Scope, defaultStanzaAnimationProperties, defaultStanzaTransitionProperties, stanza6TW_P1 ? stanza6TW_P1 : new TypewriterClass("", {}))}
 								onViewportLeave={() => stopStanza6Animation()}
 							>
 								<article ref={stanza6Scope} className={`${styles.stanza} ${styles.stanza6}`}>
@@ -765,16 +467,10 @@ export default function TheJuiceProse () {
 									/> }
 								</article>
 
-								<motion.div
-									initial={initialOptions}
-									whileInView={whileInViewOptions}
-									transition={{
-										duration: 2,
-										delay: 9
-									}}
-								>
-									<BouncingDownArrow />
-								</motion.div>
+								<CustomBouncingDownArrow initial={initialOptions} whileInView={whileInViewOptions} transition={{
+									duration: 2,
+									delay: 9
+								}} />
 
 								<div 
 									ref={stanza6WrapperScope} 
@@ -782,15 +478,29 @@ export default function TheJuiceProse () {
 								</div>
 							</motion.div>
 
-							<VerticalSpacer />
+							<VerticalSpacer /> */}
+
+							<LiteratureStanza
+								stanzaNumber={6}
+								literature={literature}
+								isEnabled={begin}
+								stopAnimation={stopStanza6Animation}
+								initialOptions
+								whileInViewOptions
+								transitionOptions
+								typeWriterOptions={typewriterOptions}
+								useContinueArrow={true}
+								continueArrowTransitionOptions={{ duration: 2, delay: 9 }}
+								useEndSpacer={true}
+							/>
 
 							{/* STANZA #7 "giving their all..."===================================================================================== */}
-							<motion.div 
+							{/* <motion.div 
 								className={styles.newStanzaWrapper}
 								initial={initialOptions}
 								whileInView={whileInViewOptions}
 								transition={transitionOptions}
-								onViewportEnter={() => startStanza7Animation()}
+								onViewportEnter={() => startAnimation(stanza7WrapperAnimate, stanza7WrapperScope, defaultWrapperAnimationProperties, defaultWrapperTransitionProperties, stanza7Animate, stanza7Scope, defaultStanzaAnimationProperties, defaultStanzaTransitionProperties, stanza7TW_P1 ? stanza7TW_P1 : new TypewriterClass("", {}))}
 								onViewportLeave={() => stopStanza7Animation()}
 							>
 								<article ref={stanza7Scope} className={`${styles.stanza} ${styles.stanza7}`}>
@@ -806,16 +516,10 @@ export default function TheJuiceProse () {
 									/> }
 								</article>
 
-								<motion.div
-									initial={initialOptions}
-									whileInView={whileInViewOptions}
-									transition={{
-										duration: 2,
-										delay: 11
-									}}
-								>
-									<BouncingDownArrow />
-								</motion.div>
+								<CustomBouncingDownArrow initial={initialOptions} whileInView={whileInViewOptions} transition={{
+									duration: 2,
+									delay: 11
+								}} />
 
 								<div 
 									ref={stanza7WrapperScope} 
@@ -823,15 +527,29 @@ export default function TheJuiceProse () {
 								</div>
 							</motion.div>
 
-							<VerticalSpacer />
+							<VerticalSpacer /> */}
+
+							<LiteratureStanza
+								stanzaNumber={7}
+								literature={literature}
+								isEnabled={begin}
+								stopAnimation={stopStanza7Animation}
+								initialOptions
+								whileInViewOptions
+								transitionOptions
+								typeWriterOptions={typewriterOptions}
+								useContinueArrow={true}
+								continueArrowTransitionOptions={{ duration: 2, delay: 11 }}
+								useEndSpacer={true}
+							/>
 
 							{/* STANZA #8 "But until that day comes..."===================================================================================== */}
-							<motion.div 
+							{/* <motion.div 
 								className={styles.newStanzaWrapper}
 								initial={initialOptions}
 								whileInView={whileInViewOptions}
 								transition={transitionOptions}
-								onViewportEnter={() => startStanza8Animation()}
+								onViewportEnter={() => startAnimation(stanza8WrapperAnimate, stanza8WrapperScope, defaultWrapperAnimationProperties, defaultWrapperTransitionProperties, stanza8Animate, stanza8Scope, defaultStanzaAnimationProperties, defaultStanzaTransitionProperties, stanza8TW_P1 ? stanza8TW_P1 : new TypewriterClass("", {}))}
 								onViewportLeave={() => stopStanza8Animation()}
 							>
 								<article ref={stanza8Scope} className={`${styles.stanza} ${styles.stanza8}`}>
@@ -847,16 +565,10 @@ export default function TheJuiceProse () {
 									/> }
 								</article>
 
-								<motion.div
-									initial={initialOptions}
-									whileInView={whileInViewOptions}
-									transition={{
-										duration: 2,
-										delay: 10
-									}}
-								>
-									<BouncingDownArrow />
-								</motion.div>
+								<CustomBouncingDownArrow initial={initialOptions} whileInView={whileInViewOptions} transition={{
+									duration: 2,
+									delay: 10
+								}} />
 
 								<div 
 									ref={stanza8WrapperScope} 
@@ -864,15 +576,29 @@ export default function TheJuiceProse () {
 								</div>
 							</motion.div>
 
-							<VerticalSpacer />
+							<VerticalSpacer /> */}
+
+							<LiteratureStanza
+								stanzaNumber={8}
+								literature={literature}
+								isEnabled={begin}
+								stopAnimation={stopStanza8Animation}
+								initialOptions
+								whileInViewOptions
+								transitionOptions
+								typeWriterOptions={typewriterOptions}
+								useContinueArrow={true}
+								continueArrowTransitionOptions={{ duration: 2, delay: 10 }}
+								useEndSpacer={true}
+							/>
 
 							{/* STANZA #9 "knowing that their love..."===================================================================================== */}
-							<motion.div 
+							{/* <motion.div 
 								className={styles.newStanzaWrapper}
 								initial={initialOptions}
 								whileInView={whileInViewOptions}
 								transition={transitionOptions}
-								onViewportEnter={() => startStanza9Animation()}
+								onViewportEnter={() => startAnimation(stanza9WrapperAnimate, stanza9WrapperScope, defaultWrapperAnimationProperties, defaultWrapperTransitionProperties, stanza9Animate, stanza9Scope, defaultStanzaAnimationProperties, defaultStanzaTransitionProperties, stanza9TW_P1 ? stanza9TW_P1 : new TypewriterClass("", {}))}
 								onViewportLeave={() => stopStanza9Animation()}
 							>
 								<article ref={stanza9Scope} className={`${styles.stanza} ${styles.stanza9}`}>
@@ -894,7 +620,20 @@ export default function TheJuiceProse () {
 								</div>
 							</motion.div>
 
-							<VerticalSpacer />
+							<VerticalSpacer /> */}
+
+							<LiteratureStanza
+								stanzaNumber={9}
+								literature={literature}
+								isEnabled={begin}
+								stopAnimation={stopStanza9Animation}
+								initialOptions
+								whileInViewOptions
+								transitionOptions
+								typeWriterOptions={typewriterOptions}
+								useContinueArrow={false}
+								useEndSpacer={true}
+							/>
 
 							{/* ENDING CARD ===================================================================================== */}
 
