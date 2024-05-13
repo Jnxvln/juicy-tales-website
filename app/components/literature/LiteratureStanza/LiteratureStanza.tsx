@@ -56,10 +56,8 @@ export default function LiteratureStanza ({
 
 		let _titleUrl = literature.title
 		_titleUrl = _titleUrl.toLowerCase()
-		_titleUrl = _titleUrl.replace(' ', '_')
+		_titleUrl = _titleUrl.replace(/\s+/g, "_")
 		_titleUrl = _titleUrl.trim()
-
-		// console.log('[LiteratureStanza determineTitleUrl()]: Returning: ' + _titleUrl)
 
 		return _titleUrl
 	}
@@ -90,7 +88,7 @@ export default function LiteratureStanza ({
 			if (literature?.stanzas[stanzaNumber]?.part2) {
 				setTimeout(() => {
 					typeWriter2?.start()
-				}, 8000)
+				}, 3000)
 			}
 		}
 	}

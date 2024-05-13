@@ -33,15 +33,15 @@ export default function Tales () {
 						</div>
 					</Link>
 
+					<Link href="/tales/the-carnival-mind">
+						<div className={`${styles.menuItem}`}>
+							The Carnival Mind
+						</div>
+					</Link>
+
 					{/* <Link href="/tales/chefs-symphony"> */}
 						<div className={`${styles.menuItem} ${styles.disabledMenuItem}`}>
 							Chef&apos;s Symphony
-						</div>
-					{/* </Link> */}
-
-					{/* <Link href="/tales/the-carnival-mind"> */}
-						<div className={`${styles.menuItem} ${styles.disabledMenuItem}`}>
-							The Carnival Mind
 						</div>
 					{/* </Link> */}
 

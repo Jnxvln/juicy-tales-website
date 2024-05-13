@@ -1,0 +1,82 @@
+@import '/app/styles/variables.module.scss';
+
+$titleUrl: "the_carnival_mind";
+$imageBaseUrl: "/images/" + $titleUrl;
+
+.pageContainer {
+	// width: 100%;
+	width: 100svw;
+	max-width: 100svw;
+}
+
+.storyContainer {
+	// border: 3px dotted white;
+	width: 100%;
+	padding: 1.5em;
+	position: relative;
+	top: $navigationHeightOffset;
+}
+
+.typewriterCursor {
+	visibility: hidden;
+}
+
+.typewriterWrapper {
+	font-family: 'Comic Sans MS', sans-serif;
+	font-size: 1.5rem;
+}
+
+// #region MEDIA QUERIES ===========================================================================================================================
+
+// Mobile Extra Small  < 320px
+@media screen and (max-width: 319px) {
+	.storyContainer {
+		// border: 4px dashed cyan;
+		padding: 0.5em;
+	}
+}
+
+// Mobile Small 320px
+@media screen and (min-width: 320px) {
+	.storyContainer {
+		// border: 4px dashed limegreen;
+		padding: 0.5em;
+	}
+}
+
+// Mobile Medium 375px
+@media screen and (min-width: 375px) {
+	// .storyContainer {
+	// 	// border: 4px dashed aqua;
+	// }
+}
+
+// Mobile Large 425px
+@media screen and (min-width: 425px) {
+	// .storyContainer {
+	// 	// border: 4px dashed tomato;
+	// }
+}
+
+// Tablet 768px
+@media screen and (min-width: 768px) {
+	.storyContainer {
+		// border: 4px dashed white;
+		padding: 3em;
+	}
+}
+
+// Tablet 1024px
+@media screen and (min-width: 1024px) {
+	// .storyContainer {
+	// 	// border: 6px dotted salmon;
+	// }
+}
+
+// Laptop Large 1440px
+@media screen and (min-width: 1440px) {
+	// .storyContainer {
+	// 	// border: 6px dotted limegreen;
+	// }
+}
+// #endregion
