@@ -8,6 +8,7 @@ export type TStanza = {
 export type TLiterature = {
 	title: string;
 	type: "poem" | "prose" | "story" | "other";
+	audioSrcUrl?: string;
 	stanzas: TStanza[];
 }
 // #endregion

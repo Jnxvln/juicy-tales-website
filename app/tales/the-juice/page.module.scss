@@ -26,80 +26,6 @@ $imageBaseUrl: "/images/" + $titleUrl;
 	font-size: 1.5rem;
 }
 
-// .newStanzaWrapper {
-// 	// border: 3px dashed orange;
-// 	max-width: 1280px;
-// 	margin: 0 auto;
-// }
-
-// .stanzaImageWrapper {
-// 	background-size: cover;
-// 	background-position: center;
-// 	opacity: 0;
-// 	width: 100%;
-// 	height: 60svh;
-// 	margin: 0 auto;
-// 	border-radius: 20px;
-// }
-
-// .stanza {
-// 	// border: 3px dashed red;
-// 	float: left;
-// 	transform: translateY(calc(-100% -  1px));
-// 	background-color: rgba(0,0,0,0.75);
-// 	opacity: 0;
-// 	width: 100%;
-// 	padding-bottom: 1em;
-// 	margin: 0 auto;
-// }
-
-.stanza5 {
-	// border: 2px solid pink;
-	transform: translateY(calc(-130% - 1px));
-}
-
-// #region STANZA IMAGE WRAPPERS =================================================================================================================================
-.stanzaImageWrapper0 {
-	background-image: url($imageBaseUrl + "/imageStanza0.jpg");
-}
-
-.stanzaImageWrapper1 {
-	background-image: url($imageBaseUrl + "/imageStanza01.png");
-}
-
-.stanzaImageWrapper2 {
-	background-image: url($imageBaseUrl + "/imageStanza02.png");
-}
-
-.stanzaImageWrapper3 {
-	background-image: url($imageBaseUrl + "/imageStanza03.png");
-}
-
-.stanzaImageWrapper4 {
-	background-image: url($imageBaseUrl + "/imageStanza04.png");
-}
-
-.stanzaImageWrapper5 {
-	background-image: url($imageBaseUrl + "/imageStanza05.png");
-}
-
-.stanzaImageWrapper6 {
-	background-image: url($imageBaseUrl + "/imageStanza06.png");
-}
-
-.stanzaImageWrapper7 {
-	background-image: url($imageBaseUrl + "/imageStanza07.png");
-}
-
-.stanzaImageWrapper8 {
-	background-image: url($imageBaseUrl + "/imageStanza08.png");
-}
-
-.stanzaImageWrapper9 {
-	background-image: url($imageBaseUrl + "/imageStanza09.png");
-}
-// #endregion =================================================================================================================================
-
 // #region MEDIA QUERIES ===========================================================================================================================
 
 // Mobile Extra Small  < 320px
@@ -120,6 +46,9 @@ $imageBaseUrl: "/images/" + $titleUrl;
 
 // Mobile Medium 375px
 @media screen and (min-width: 375px) {
+	// .storyContainer {
+	// 	// border: 4px dashed aqua;
+	// }
 }
 
 // Mobile Large 425px
@@ -139,12 +68,15 @@ $imageBaseUrl: "/images/" + $titleUrl;
 
 // Tablet 1024px
 @media screen and (min-width: 1024px) {
+	// .storyContainer {
+	// 	// border: 6px dotted salmon;
+	// }
 }
 
 // Laptop Large 1440px
 @media screen and (min-width: 1440px) {
-	.storyContainer {
-		// border: 6px dotted limegreen;
-	}
+	// .storyContainer {
+	// 	// border: 6px dotted limegreen;
+	// }
 }
 // #endregion

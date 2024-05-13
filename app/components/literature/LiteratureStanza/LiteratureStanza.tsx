@@ -18,7 +18,6 @@ type TLiteratureStanzaParams = {
 	stanzaNumber: number,
 	literature: TLiterature,
 	isEnabled: boolean,
-	stopAnimation: Function,
 	initialOptions: Object,
 	whileInViewOptions: Object,
 	transitionOptions: Object,
@@ -30,15 +29,9 @@ type TLiteratureStanzaParams = {
 }
 
 export default function LiteratureStanza ({
-	// stanzaScope,
-	// stanzaAnimate,
-	// stanzaImageWrapperScope,
-	// stanzaWrapperAnimate,
-	// startAnimation,
 	stanzaNumber,
 	literature,
 	isEnabled,
-	stopAnimation,
 	initialOptions,
 	whileInViewOptions,
 	transitionOptions,
@@ -49,12 +42,15 @@ export default function LiteratureStanza ({
 	useEndSpacer
 }: TLiteratureStanzaParams) {
 
+	// #region VARIABLES
 	const [typeWriter, setTypeWriter] = useState<TypewriterClass>()
 	const [typeWriter2, setTypeWriter2] = useState<TypewriterClass>()
 	const [stanzaImageWrapperScope, stanzaImageWrapperAnimate] = useAnimate()
 	const [stanzaScope, stanzaAnimate] = useAnimate()
 	const [imageBaseUrl] = useState("/images")
+	// #endregion
 
+	// #region ACTIONS
 	const determineTitleUrl = () => {
 		if (!literature || !literature.title) return;
 
@@ -99,7 +95,15 @@ export default function LiteratureStanza ({
 		}
 	}
 
-	// #region USE-EFFECTS -----------------------------------------------------------------------------
+	const stopAnimation = () => {
+		typeWriter?.stop()
+		if (typeWriter2) {
+			typeWriter2?.stop()
+		}
+	}
+	// #endregion
+
+	// #region USE-EFFECTS
 	useEffect(() => {
 		let titleUrl = determineTitleUrl()
 		const imageUrl = `url("${imageBaseUrl}/${titleUrl}/imageStanza${convertStanzaNumberToString(stanzaNumber)}.png")`
@@ -125,7 +129,6 @@ export default function LiteratureStanza ({
 				initial={initialOptions}
 				whileInView={whileInViewOptions}
 				transition={transitionOptions}
-				// onViewportEnter={() => startAnimation(isEnabled, stanzaImageWrapperAnimate, stanzaImageWrapperScope, defaultWrapperAnimationProperties, defaultWrapperTransitionProperties, stanzaAnimate, stanzaScope, defaultStanzaAnimationProperties, defaultStanzaTransitionProperties, typeWriter ? typeWriter : new TypewriterClass("", {}))}
 				onViewportEnter={() => startAnimation(isEnabled, stanzaImageWrapperAnimate, stanzaImageWrapperScope, defaultWrapperAnimationProperties, defaultWrapperTransitionProperties, stanzaAnimate, stanzaScope, defaultStanzaAnimationProperties, defaultStanzaTransitionProperties, typeWriter )}
 				onViewportLeave={() => stopAnimation()}
 			>
