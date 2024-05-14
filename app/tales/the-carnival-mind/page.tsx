@@ -9,17 +9,11 @@ import LiteratureHeader from '@/app/components/literature/LiteratureHeader/Liter
 import LiteratureBeginButton from '@/app/components/literature/LiteratureBeginButton/LiteratureBeginButton';
 import LiteratureVolumeNotice from '@/app/components/literature/LiteratureVolumeNotice/LiteratureVolumeNotice';
 import LiteratureStanza from '@/app/components/literature/LiteratureStanza/LiteratureStanza';
+import LiteratureHeaderSpacer from '@/app/components/literature/LiteratureHeaderSpacer/LiteratureHeaderSpacer';
 import EndCard from '@/app/components/EndCard/EndCard';
 import colors from './TheCarnivalMind.module.scss'
 import stanzas from './the-carnival-mind-stanzas.json'
 import styles from './TheCarnivalMind.module.scss'
-
-// #region DEFAULT OPTIONS =======================================================================================
-const typewriterOptions = {
-	wrapperClassName: styles.typewriterWrapper,
-	cursorClassName: styles.typewriterCursor
-}
-// #endregion ===================================================================================================
 
 export default function TheCarnivalMind () {
 
@@ -90,6 +84,9 @@ export default function TheCarnivalMind () {
 			{/* NAVIGATION */}
 			<LiteratureNavigation scope={headerTitleScope} literatureTitle={literature.title} />
 
+			{/* HEADER SPACER */}
+			<LiteratureHeaderSpacer />
+
 			{/* HEADER */}
 			<LiteratureHeader scope={headerScope} literatureTitle={literature.title} />
 
@@ -110,7 +107,6 @@ export default function TheCarnivalMind () {
 						initialOptions
 						whileInViewOptions
 						transitionOptions
-						typeWriterOptions={typewriterOptions}
 						typeWriterInitialPauseInSeconds={14}
 						useContinueArrow={true}
 						continueArrowTransitionOptions={{ duration: 2, delay: 14 }}
@@ -133,7 +129,6 @@ export default function TheCarnivalMind () {
 										initialOptions
 										whileInViewOptions
 										transitionOptions
-										typeWriterOptions={typewriterOptions}
 										useContinueArrow={true}
 										continueArrowTransitionOptions={{ duration: 2, delay: 12 }}
 										useEndSpacer={true}

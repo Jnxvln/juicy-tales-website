@@ -1,0 +1,50 @@
+@import '/app/styles/variables.module.scss';
+
+.spacer {
+	border: 6px dotted orange;
+	width: 100%;
+}
+
+// #region MEDIA QUERIES
+@media screen and (max-width: 319px) {
+	.spacer {
+		height: 0em;
+	}
+}
+
+@media screen and (min-width: 320px) {
+	.spacer {
+		height: 0em;
+	}
+}
+
+@media screen and (min-width: 375px) {
+	.spacer {
+		height: 1.08em;
+	}
+}
+
+@media screen and (min-width: 425px) {
+	.spacer {
+		height: 2.22em;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.spacer {
+		height: 3.25em;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.spacer {
+		height: 4em;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.spacer {
+		height: 5em;
+	}
+}
+// #endregion

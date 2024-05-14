@@ -21,7 +21,6 @@ type TLiteratureStanzaParams = {
 	initialOptions: Object,
 	whileInViewOptions: Object,
 	transitionOptions: Object,
-	typeWriterOptions: Object,
 	typeWriterInitialPauseInSeconds?: number,
 	continueArrowTransitionOptions?: Object,
 	useContinueArrow: boolean,
@@ -35,7 +34,6 @@ export default function LiteratureStanza ({
 	initialOptions,
 	whileInViewOptions,
 	transitionOptions,
-	typeWriterOptions,
 	typeWriterInitialPauseInSeconds,
 	continueArrowTransitionOptions,
 	useContinueArrow,
@@ -48,6 +46,10 @@ export default function LiteratureStanza ({
 	const [stanzaImageWrapperScope, stanzaImageWrapperAnimate] = useAnimate()
 	const [stanzaScope, stanzaAnimate] = useAnimate()
 	const [imageBaseUrl] = useState("/images")
+	const typeWriterOptions = {
+		wrapperClassName: styles.typewriterWrapper,
+		cursorClassName: styles.typewriterCursor
+	}
 	// #endregion
 
 	// #region ACTIONS
