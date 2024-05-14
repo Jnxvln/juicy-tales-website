@@ -13,6 +13,7 @@ import EndCard from '@/app/components/EndCard/EndCard';
 import colors from './page.module.scss'
 import stanzas from './the-juice-stanzas.json'
 import styles from './page.module.scss'
+import LiteratureHeaderSpacer from '@/app/components/literature/LiteratureHeaderSpacer/LiteratureHeaderSpacer';
 
 // #region DEFAULT OPTIONS =======================================================================================
 const typewriterOptions = {
@@ -89,6 +90,9 @@ export default function TheJuiceProse () {
 
 			{/* NAVIGATION */}
 			<LiteratureNavigation scope={headerTitleScope} literatureTitle={literature.title} />
+
+			{/* HEADER SPACER */}
+			<LiteratureHeaderSpacer />
 
 			{/* HEADER */}
 			<LiteratureHeader scope={headerScope} literatureTitle={literature.title} />

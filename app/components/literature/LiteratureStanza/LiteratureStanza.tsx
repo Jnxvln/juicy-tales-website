@@ -160,7 +160,7 @@ export default function LiteratureStanza ({
 								if (!literature?.stanzas[stanzaNumber]?.part2) return;
 
 								setTypeWriter2(typewriter2) // promote to own state variable, i.e. "setTypeWriter2" etc.
-								typewriter2.changeDelay(90)
+								typewriter2.changeDelay(45)
 								typewriter2.typeString(literature.stanzas[stanzaNumber].part2)
 							}}
 							options={typeWriterOptions}

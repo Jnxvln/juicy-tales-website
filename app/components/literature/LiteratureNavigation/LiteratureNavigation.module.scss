@@ -98,9 +98,6 @@
 	.linksContainer, .mediaControls {
 		padding-top: 0.8em;
 	}
-	// .navigation {
-	// 	height: calc($navigationHeightOffset + 24px);
-	// }
 }
 
 // Tablet 768px
@@ -112,9 +109,6 @@
 		gap: 0.8em;
 		padding-top: 0em;
 	}
-	// .navigation {
-	// 	height: calc($navigationHeightOffset + 54px);
-	// }
 	.navLink {
 		gap: 0.5em;
 		font-size: 1rem;
@@ -127,15 +121,15 @@
 
 // Tablet 1024px
 @media screen and (min-width: 1024px) {
+	// .navigation {
+	// 	border: 3px solid cyan;
+	// }
 	.navStoryTitle {
 		font-size: 2.8rem !important;
 	}
 	.navigationLinksList {
 		gap: 1.3em;
 	}
-	// .navigation {
-	// 	height: calc($navigationHeightOffset + 74px);
-	// }
 	.navLink {
 		gap: 0.5em;
 		font-size: 1.2rem;
@@ -148,6 +142,9 @@
 
 // Laptop Large 1440px
 @media screen and (min-width: 1440px) {
+	// .navigation {
+	// 	border: 3px solid limegreen;
+	// }
 	.navStoryTitle {
 		font-size: 3.5rem !important;
 	}
@@ -156,11 +153,8 @@
 		font-size: 1.6rem;
 	}
 	.mediaControls, .linksContainer {
-		padding-top: 0.2em;
+		padding-top: 0.6em;
 		font-size: 1.6rem;
 	}
-	// .navigation {
-	// 	height: calc($navigationHeightOffset + 154px);
-	// }
 }
 // #endregion
