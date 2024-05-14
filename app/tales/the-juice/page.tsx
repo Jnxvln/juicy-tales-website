@@ -114,7 +114,6 @@ export default function TheJuiceProse () {
 						initialOptions
 						whileInViewOptions
 						transitionOptions
-						typeWriterOptions={typewriterOptions}
 						typeWriterInitialPauseInSeconds={14}
 						useContinueArrow={true}
 						continueArrowTransitionOptions={{ duration: 2, delay: 14 }}
@@ -137,7 +136,6 @@ export default function TheJuiceProse () {
 										initialOptions
 										whileInViewOptions
 										transitionOptions
-										typeWriterOptions={typewriterOptions}
 										useContinueArrow={true}
 										continueArrowTransitionOptions={{ duration: 2, delay: 12 }}
 										useEndSpacer={true}
