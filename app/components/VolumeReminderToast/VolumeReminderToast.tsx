@@ -41,6 +41,7 @@ export default function  VolumeReminderToast () {
 			if (reminderBool) displayVolumeReminder()
 		} else {
 			localStorage?.setItem(LOCALSTORAGE_VOLUME_REMINDER, 'true')
+			displayVolumeReminder()
 		}
 	}
 
