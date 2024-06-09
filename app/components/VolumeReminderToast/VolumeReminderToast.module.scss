@@ -1,7 +1,7 @@
 @import '/app/styles/variables.module.scss';
 
 .buttonContainer {
-	border: 1px dashed orangered;
+	// border: 1px dashed orangered;
 	padding: 0.25em;
 	display: flex;
 	gap: 0.35em;
@@ -18,4 +18,9 @@
 		background-color: $storyPageHeaderBgColor;
 		transition: background-color 0.25s ease-in-out;
 	}
+}
+
+
+.message { 
+	font-weight: bold;
 }

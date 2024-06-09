@@ -17,7 +17,7 @@ export default function  VolumeReminderToast () {
 		closeToastFunc = closeToast
 		return (
 			<div>
-				<div>Volume up for best experience!</div>
+				<div className={styles.message}>Volume up for best experience!</div>
 				<div className={styles.buttonContainer}>
 					<button className={`${styles.button}`} onClick={onCancelReminder}>Don&apos;t Remind Me</button>
 					<button className={`${styles.button}`} onClick={closeToast}>Close</button>
