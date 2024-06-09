@@ -39,6 +39,8 @@ export default function  VolumeReminderToast () {
 		if (localStorageReminderValue) {
 			let reminderBool = JSON.parse(localStorageReminderValue)
 			if (reminderBool) displayVolumeReminder()
+		} else {
+			localStorage?.setItem(LOCALSTORAGE_VOLUME_REMINDER, 'true')
 		}
 	}
 
