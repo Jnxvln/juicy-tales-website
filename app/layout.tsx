@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Noto_Sans } from "next/font/google";
+import {NextUIProvider} from "@nextui-org/react";
+import NextUIProviderContainer from "./components/NextUIProviderContainer/NextUIProviderContainer";
+import { ToastContainer } from "react-toastify";
+import { config } from '@fortawesome/fontawesome-svg-core';
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import { config } from '@fortawesome/fontawesome-svg-core'
 import "./globals.scss";
 
 config.autoAddCss = false;
@@ -20,7 +23,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={notoSans.className}>{children}</body>
+      <body className={notoSans.className}>
+        <NextUIProviderContainer>
+          {children}
+          <ToastContainer />
+        </NextUIProviderContainer>
+      </body>
     </html>
   );
 }

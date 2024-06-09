@@ -14,6 +14,7 @@ import EndCard from '@/app/components/EndCard/EndCard';
 import colors from './TheCarnivalMind.module.scss'
 import stanzas from './the-carnival-mind-stanzas.json'
 import styles from './TheCarnivalMind.module.scss'
+import VolumeReminderToast from '@/app/components/VolumeReminderToast/VolumeReminderToast';
 
 export default function TheCarnivalMind () {
 
@@ -80,6 +81,8 @@ export default function TheCarnivalMind () {
 
 	return (
 		<div className={styles.pageContainer}>
+
+			<VolumeReminderToast />
 
 			{/* NAVIGATION */}
 			<LiteratureNavigation scope={headerTitleScope} literatureTitle={literature.title} />

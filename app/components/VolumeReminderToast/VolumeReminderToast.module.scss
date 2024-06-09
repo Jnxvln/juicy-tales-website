@@ -1,0 +1,21 @@
+@import '/app/styles/variables.module.scss';
+
+.buttonContainer {
+	border: 1px dashed orangered;
+	padding: 0.25em;
+	display: flex;
+	gap: 0.35em;
+}
+
+.button {
+	background-color: $storyPageHeaderBgColorHover;
+	border-radius: 5px;
+	padding: 0.5em;
+	color: white;
+	transition: background-color 0.25s ease-in-out;
+
+	&:hover {
+		background-color: $storyPageHeaderBgColor;
+		transition: background-color 0.25s ease-in-out;
+	}
+}

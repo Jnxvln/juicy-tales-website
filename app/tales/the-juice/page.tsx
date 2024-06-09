@@ -12,9 +12,11 @@ import LiteratureStanza from '@/app/components/literature/LiteratureStanza/Liter
 import EndCard from '@/app/components/EndCard/EndCard';
 import colors from './page.module.scss'
 import stanzas from './the-juice-stanzas.json'
-import styles from './page.module.scss'
 import LiteratureHeaderSpacer from '@/app/components/literature/LiteratureHeaderSpacer/LiteratureHeaderSpacer';
-
+import { toast } from 'react-toastify'
+import styles from './page.module.scss'
+import 'react-toastify/dist/ReactToastify.min.css';
+import VolumeReminderToast from '@/app/components/VolumeReminderToast/VolumeReminderToast';
 // #region DEFAULT OPTIONS =======================================================================================
 const typewriterOptions = {
 	wrapperClassName: styles.typewriterWrapper,
@@ -87,6 +89,8 @@ export default function TheJuiceProse () {
 
 	return (
 		<div className={styles.pageContainer}>
+
+			<VolumeReminderToast />
 
 			{/* NAVIGATION */}
 			<LiteratureNavigation scope={headerTitleScope} literatureTitle={literature.title} />
